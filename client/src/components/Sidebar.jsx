@@ -2,8 +2,16 @@ import React from "react";
 import { Stack } from "@mui/material";
 import { categories } from "../utils/constants";
 import { useTheme } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 export const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
   const theme = useTheme();
+  const navigate = useNavigate();
+
+  // if (selectedCategory) {
+  //   navigate(`/`);
+  // }
+
   return (
     <Stack
       direction="row"

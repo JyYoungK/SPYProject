@@ -7,7 +7,6 @@ import { InputBase, useTheme } from "@mui/material";
 export const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
-  const theme = useTheme();
 
   const onhandleSubmit = (e) => {
     e.preventDefault();
