@@ -5,10 +5,12 @@ import { Sidebar } from "./Sidebar";
 import { Videos } from "./Youtube/Videos";
 import { SearchBar } from "./Youtube/SearchBar";
 import { Link } from "react-router-dom";
+import { useTheme } from "@mui/material";
 
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("New");
   const [videos, setVideos] = useState(null);
+  const theme = useTheme();
 
   useEffect(() => {
     setVideos(null);
@@ -43,7 +45,10 @@ const Feed = () => {
             mb={2}
             sx={{ color: "white" }}
           >
-            New Youtube <span style={{ color: "#FC1503" }}>videos</span>
+            <span style={{ color: theme.palette.neutral.dark }}>
+              New Youtube
+            </span>{" "}
+            <span style={{ color: "#FC1503" }}>Videos</span>
           </Typography>
           <a href="https://www.youtube.com/" target="_blank">
             <img

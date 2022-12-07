@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Paper, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { InputBase, useTheme } from "@mui/material";
 
 export const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const onhandleSubmit = (e) => {
     e.preventDefault();
@@ -22,14 +24,12 @@ export const SearchBar = () => {
       component="form"
       onSubmit={onhandleSubmit}
       sx={{
-        borderRadius: 20,
-        border: "1px solid #e3e3e3",
         pl: 2,
         boxShadow: "none",
         mr: { sm: 5 },
       }}
     >
-      <input
+      <InputBase
         className="search-bar"
         placeholder="Search..."
         value={searchTerm}
