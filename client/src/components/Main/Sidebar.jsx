@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { AiOutlineYoutube } from "react-icons/ai";
-import {
-  HiOutlineHashtag,
-  HiOutlineHome,
-  HiOutlineMenu,
-  HiOutlinePhotograph,
-  HiOutlineUserGroup,
-} from "react-icons/hi";
-import { RiCloseLine } from "react-icons/ri";
+import { AiOutlinePicture, AiOutlineYoutube } from "react-icons/ai";
 import { FiAward } from "react-icons/fi";
+import { HiOutlineMenu, HiOutlineUserGroup } from "react-icons/hi";
+import { IoGameControllerOutline } from "react-icons/io5";
+import { MdSportsSoccer } from "react-icons/md";
+import { RiCloseLine } from "react-icons/ri";
+import { TbMovie } from "react-icons/tb";
 import Divider from "@mui/material/Divider";
-
 import { logo } from "../../assets";
 
 const musiclinks = [
@@ -19,12 +15,21 @@ const musiclinks = [
   { name: "Top Charts", to: "/", icon: FiAward },
   { name: "Top Artists", to: "/top-artists", icon: HiOutlineUserGroup },
 ];
+const picturelinks = [
+  { name: "Pictures", to: "/top-pictures", icon: AiOutlinePicture },
+];
 const videolinks = [
-  { name: "Youtube", to: "/top-videos", icon: AiOutlineYoutube },
+  { name: "Trending", to: "/top-videos", icon: AiOutlineYoutube },
+  { name: "Movie", to: "/top-videos", icon: TbMovie },
+  { name: "Sports", to: "/top-videos", icon: MdSportsSoccer },
+  { name: "Gaming", to: "/top-videos", icon: IoGameControllerOutline },
 ];
 
 const NavLinks = ({ handleClick }) => (
-  <div className="mt-5">
+  <div className="mt-2">
+    <div className="flex flex-row justify-start items-center my-4 text-2xl font-medium text-green-500">
+      <b className="mr-1"> S </b> potify
+    </div>
     {musiclinks.map((item) => (
       <NavLink
         key={item.name}
@@ -37,6 +42,24 @@ const NavLinks = ({ handleClick }) => (
       </NavLink>
     ))}
     <Divider className="bg-white" />
+    <div className="flex flex-row justify-start items-center my-4 text-2xl font-medium text-pink-500">
+      <b className="mr-1"> P </b> interest
+    </div>
+    {picturelinks.map((item) => (
+      <NavLink
+        key={item.name}
+        to={item.to}
+        className="flex flex-row justify-start items-center my-8 text-sm font-medium text-gray-400 hover:text-cyan-400 active:bg-violet-700"
+        onClick={() => handleClick && handleClick()} //If handleClick is passed, call it
+      >
+        <item.icon className="w-6 h-6 mr-2 " />
+        {item.name}
+      </NavLink>
+    ))}
+    <Divider className="bg-white" />
+    <div className="flex flex-row justify-start items-center my-4 text-2xl font-medium text-red-500">
+      <b className="mr-1"> Y </b> outube
+    </div>
     {videolinks.map((item) => (
       <NavLink
         key={item.name}

@@ -4,7 +4,7 @@ import { Paper, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { InputBase } from "@mui/material";
 
-export const SearchBar = () => {
+const VideoSearchbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
@@ -44,3 +44,5 @@ export const SearchBar = () => {
     </Paper>
   );
 };
+
+export default VideoSearchbar;

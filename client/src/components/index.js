@@ -11,10 +11,12 @@ import MusicHeader from "./Music/MusicHeader";
 import SongBar from "./Music/SongBar";
 import RelatedSongs from "./Music/RelatedSongs";
 import MusicPlayer from "./Music/MusicPlayer";
+import VideoSearchBar from "./Video/VideoSearchBar";
 import VideoCard from "./Video/VideoCard";
 import Video from "./Video/Video";
 import VideoLoader from "./Video/VideoLoader";
-
+import PictureSearchBar from "./Picture/PictureSearchBar";
+import Pins from "./Picture/Pins";
 export {
   Navbar,
   Sidebar,
@@ -29,7 +31,10 @@ export {
   SongBar,
   RelatedSongs,
   MusicPlayer,
+  VideoSearchBar,
   VideoCard,
   Video,
   VideoLoader,
+  PictureSearchBar,
+  Pins,
 };

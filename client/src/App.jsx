@@ -7,6 +7,7 @@ import {
   Discover,
   Search,
   SongDetails,
+  TopPictures,
   TopVideos,
   VideoDetail,
 } from "./pages";
@@ -30,14 +31,16 @@ const App = () => {
               <Route path="/songs/:songid" element={<SongDetails />} />
               <Route path="/search/:searchTerm" element={<Search />} />
               {/* --------------------------------------------------- */}
+              <Route path="/top-pictures" element={<TopPictures />} />
+              {/* --------------------------------------------------- */}
               <Route path="/top-videos" element={<TopVideos />} />
               <Route path="/video/:id" element={<VideoDetail />} />
             </Routes>
           </div>
-          <div className=" xl:sticky relative top-0 h-fit">
+          {/* <div className=" xl:sticky relative top-0 h-fit">
             {activeSong?.title && <MusicPlayer />}
             <TopPlay />
-          </div>
+          </div> */}
         </div>
       </div>
 
