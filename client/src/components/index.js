@@ -1,8 +1,35 @@
-export { default as Feed } from "./Feed";
-export { default as Navbar } from "./Navbar/Navbar";
-export { default as SearchFeed } from "./Youtube/SearchFeed";
-export { default as ChannelDetail } from "./Youtube/ChannelDetail";
-// export { default as SearchBar } from "./Youtube/SearchBar";
-// export { default as VideoCard } from "./Youtube/VideoCard";
-export { default as VideoDetail } from "./Youtube/VideoDetail";
-// export { default as Videos } from "./Youtube/Videos";
+import Navbar from "./Main/Navbar";
+import Sidebar from "./Main/Sidebar";
+import TopPlay from "./Main/TopPlay";
+import Loader from "./StateHandler/Loader";
+import Error from "./StateHandler/Error";
+import MusicSearchBar from "./Music/MusicSearchBar";
+import SongCard from "./Music/SongCard";
+import ArtistCard from "./Music/ArtistCard";
+import ArtistHeader from "./Music/ArtistHeader";
+import MusicHeader from "./Music/MusicHeader";
+import SongBar from "./Music/SongBar";
+import RelatedSongs from "./Music/RelatedSongs";
+import MusicPlayer from "./Music/MusicPlayer";
+import VideoCard from "./Video/VideoCard";
+import Video from "./Video/Video";
+import VideoLoader from "./Video/VideoLoader";
+
+export {
+  Navbar,
+  Sidebar,
+  TopPlay,
+  Loader,
+  Error,
+  MusicSearchBar,
+  SongCard,
+  ArtistCard,
+  ArtistHeader,
+  MusicHeader,
+  SongBar,
+  RelatedSongs,
+  MusicPlayer,
+  VideoCard,
+  Video,
+  VideoLoader,
+};
