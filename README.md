@@ -1,4 +1,4 @@
-# SMGarden
+# SPY Project
 
 ## Main Stack - M.E.R.N
 
