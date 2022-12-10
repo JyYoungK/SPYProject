@@ -32,7 +32,7 @@ const SearchPicture = () => {
         </h2>
       )}
       <div className="flex w-full h-full justify-center">
-        <div className="columns-5 h-full max-w-7xl sm:columns-2 sm:max-w-xl">
+        <div className="h-full sm:columns-2 sm:max-w-xl md:columns-3 md:max-w-4xl lg:columns-5 lg:max-w-7xl">
           {" "}
           {pins.map((pin, i) => (
             <PictureCard key={i} pin={pin} />

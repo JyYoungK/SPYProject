@@ -6,7 +6,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Loader } from "../components";
 import { fetchFromYoutubeAPI } from "../redux/fetchFromYoutubeAPI";
 
-const VideoDetail = () => {
+const VideoDetails = () => {
   const [videoDetail, setVideoDetail] = useState(null);
   const [videos, setVideos] = useState(null);
   const { id } = useParams();
@@ -91,4 +91,4 @@ const VideoDetail = () => {
   );
 };
 
-export default VideoDetail;
+export default VideoDetails;

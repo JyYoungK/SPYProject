@@ -5,8 +5,9 @@ import ArtistDetails from "./ArtistDetails";
 import SongDetails from "./SongDetails";
 import SearchPicture from "./SearchPicture";
 import DisplayPictures from "./DisplayPictures";
+import PictureDetails from "./PictureDetails";
 import TopVideos from "./TopVideos";
-import VideoDetail from "./VideoDetail";
+import VideoDetails from "./VideoDetails";
 export {
   Discover,
   SearchMusic,
@@ -15,6 +16,7 @@ export {
   SongDetails,
   SearchPicture,
   DisplayPictures,
+  PictureDetails,
   TopVideos,
-  VideoDetail,
+  VideoDetails,
 };

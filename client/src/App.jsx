@@ -9,8 +9,9 @@ import {
   SongDetails,
   SearchPicture,
   DisplayPictures,
+  PictureDetails,
   TopVideos,
-  VideoDetail,
+  VideoDetails,
 } from "./pages";
 
 const App = () => {
@@ -41,11 +42,11 @@ const App = () => {
                 element={<SearchPicture />}
               />
               <Route path="/pictures" element={<DisplayPictures />} />
-              <Route path="/pictures" element={<DisplayPictures />} />
+              <Route path="/pictures/:pictureid" element={<PictureDetails />} />
 
               {/* --------------------------------------------------- */}
               <Route path="/top-videos" element={<TopVideos />} />
-              <Route path="/video/:id" element={<VideoDetail />} />
+              <Route path="/video/:videoid" element={<VideoDetails />} />
             </Routes>
           </div>
           {/* <div className=" xl:sticky relative top-0 h-fit">

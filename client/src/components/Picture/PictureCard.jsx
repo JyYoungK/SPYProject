@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const PictureCard = ({ pin }) => {
   const navigate = useNavigate();
@@ -7,11 +7,11 @@ const PictureCard = ({ pin }) => {
   return (
     <div
       className="mt-6 inline-flex p-2 animate-slideup"
-      onClick={() => navigate(`/artists/${track?.artists[0].adamid}`)}
+      onClick={() => navigate(`/pictures/${pin.id}`, { state: { pin } })}
     >
       <div className="flex items-center box-border cursor-pointer w-60">
         <img
-          className="flex w-full cursor-zoom-in rounded-2xl object-cover"
+          className="flex w-full rounded-2xl object-cover"
           src={pin.urls?.regular}
           alt="pin"
         />

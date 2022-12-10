@@ -14,7 +14,7 @@ import {
 } from "../redux/services/shazamCore";
 
 const ArtistDetails = () => {
-  const { id: artistId } = useParams();
+  const { artistid: artistId } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const {
     data: artistData,

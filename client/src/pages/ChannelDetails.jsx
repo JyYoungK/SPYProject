@@ -5,7 +5,7 @@ import { Videos } from "./Videos";
 import { ChannelCard } from "./ChannelCard";
 import { fetchFromYoutubeAPI } from "../redux/fetchFromYoutubeAPI";
 
-const ChannelDetail = () => {
+const ChannelDetails = () => {
   const [selectedCategory, setSelectedCategory] = useState("New");
   const [channelDetail, setChannelDetail] = useState();
   const [videos, setVideos] = useState(null);
@@ -57,4 +57,4 @@ const ChannelDetail = () => {
   );
 };
 
-export default ChannelDetail;
+export default ChannelDetails;

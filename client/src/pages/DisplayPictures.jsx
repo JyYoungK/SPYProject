@@ -15,7 +15,7 @@ const DisplayPictures = () => {
   if (isFetching) return <Loader title={`Searching Pictures...`} />;
 
   if (error) return <Error />;
-
+  console.log(pins);
   return (
     <div className="ml-5 flex flex-col">
       <PictureSearchBar />
@@ -31,7 +31,7 @@ const DisplayPictures = () => {
       )}
 
       <div className="flex w-full h-full justify-center">
-        <div className="columns-5 h-full max-w-7xl sm:columns-2 sm:max-w-xl">
+        <div className="h-full lg:max-w-7xl lg:columns-5 md:max-w-4xl md:columns-3 sm:max-w-xl sm:columns-2  ">
           {pins.map((pin, i) => (
             <PictureCard key={i} pin={pin} />
           ))}
