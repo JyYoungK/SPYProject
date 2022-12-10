@@ -32,13 +32,19 @@ const SearchPicture = () => {
         </h2>
       )}
       <div className="flex w-full h-full justify-center">
-        <div className="h-full sm:columns-2 sm:max-w-xl md:columns-3 md:max-w-4xl lg:columns-5 lg:max-w-7xl">
-          {" "}
-          {pins.map((pin, i) => (
-            <PictureCard key={i} pin={pin} />
-          ))}
+        <div className="flex w-full h-full justify-center">
+          <div className="h-full 3xl:max-w-7xl 3xl:columns-5 md:max-w-4xl md:columns-3 sm:max-w-xl sm:columns-2  ">
+            {pins.map((pin, i) => (
+              <PictureCard
+                key={i}
+                pin={pin}
+                // openModal={toggleModal}
+                // setOpenPin={setOpenPin}
+              />
+            ))}
+          </div>
         </div>
-      </div>{" "}
+      </div>
     </div>
   );
 };

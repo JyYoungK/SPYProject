@@ -1,13 +1,16 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
-const PictureCard = ({ pin }) => {
-  const navigate = useNavigate();
+const PictureCard = ({ pin, openModal, setOpenPin }) => {
+  //   const navigate = useNavigate();
 
   return (
     <div
       className="mt-6 inline-flex p-2 animate-slideup"
-      onClick={() => navigate(`/pictures/${pin.id}`, { state: { pin } })}
+      onClick={() => {
+        openModal();
+        setOpenPin(pin);
+      }}
     >
       <div className="flex items-center box-border cursor-pointer w-60">
         <img
