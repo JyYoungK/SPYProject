@@ -16,7 +16,7 @@ const musiclinks = [
   { name: "Top Artists", to: "/top-artists", icon: HiOutlineUserGroup },
 ];
 const picturelinks = [
-  { name: "Pictures", to: "/top-pictures", icon: AiOutlinePicture },
+  { name: "Pictures", to: "/pictures", icon: AiOutlinePicture },
 ];
 const videolinks = [
   { name: "Trending", to: "/top-videos", icon: AiOutlineYoutube },
@@ -27,8 +27,8 @@ const videolinks = [
 
 const NavLinks = ({ handleClick }) => (
   <div className="mt-2">
-    <div className="flex flex-row justify-start items-center my-4 text-2xl font-medium text-green-500">
-      <b className="mr-1"> S </b> potify
+    <div className="flex flex-row justify-start items-center my-3 text-2xl font-medium text-green-500">
+      <b className="text-3xl"> S </b> potify
     </div>
     {musiclinks.map((item) => (
       <NavLink
@@ -42,8 +42,8 @@ const NavLinks = ({ handleClick }) => (
       </NavLink>
     ))}
     <Divider className="bg-white" />
-    <div className="flex flex-row justify-start items-center my-4 text-2xl font-medium text-pink-500">
-      <b className="mr-1"> P </b> interest
+    <div className="flex flex-row justify-start items-center my-3 text-2xl font-medium text-pink-500">
+      <b className="text-3xl"> P </b> interest
     </div>
     {picturelinks.map((item) => (
       <NavLink
@@ -57,8 +57,8 @@ const NavLinks = ({ handleClick }) => (
       </NavLink>
     ))}
     <Divider className="bg-white" />
-    <div className="flex flex-row justify-start items-center my-4 text-2xl font-medium text-red-500">
-      <b className="mr-1"> Y </b> outube
+    <div className="flex flex-row justify-start items-center my-3 text-2xl font-medium text-red-500">
+      <b className="text-3xl"> Y </b> outube
     </div>
     {videolinks.map((item) => (
       <NavLink

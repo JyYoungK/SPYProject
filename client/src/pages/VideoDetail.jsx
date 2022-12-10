@@ -4,7 +4,7 @@ import ReactPlayer from "react-player";
 import { Typography, Box, Stack } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Loader } from "../components";
-import { fetchFromAPI } from "../redux/fetchFromYoutubeAPI";
+import { fetchFromYoutubeAPI } from "../redux/fetchFromYoutubeAPI";
 
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState(null);
@@ -12,13 +12,13 @@ const VideoDetail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetchFromAPI(`videos?part=snippet,statistics&id=${id}`).then((data) =>
-      setVideoDetail(data.items[0])
+    fetchFromYoutubeAPI(`videos?part=snippet,statistics&id=${id}`).then(
+      (data) => setVideoDetail(data.items[0])
     );
 
-    fetchFromAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`).then(
-      (data) => setVideos(data.items)
-    );
+    fetchFromYoutubeAPI(
+      `search?part=snippet&relatedToVideoId=${id}&type=video`
+    ).then((data) => setVideos(data.items));
   }, [id]);
   if (!videoDetail?.snippet) return <Loader />;
 

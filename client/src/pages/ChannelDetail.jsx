@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 import { Videos } from "./Videos";
 import { ChannelCard } from "./ChannelCard";
-import { fetchFromAPI } from "../redux/fetchFromYoutubeAPI";
+import { fetchFromYoutubeAPI } from "../redux/fetchFromYoutubeAPI";
 
 const ChannelDetail = () => {
   const [selectedCategory, setSelectedCategory] = useState("New");
@@ -13,8 +13,8 @@ const ChannelDetail = () => {
   useEffect(() => {
     setVideos(null);
 
-    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
-      setVideos(data.items)
+    fetchFromYoutubeAPI(`search?part=snippet&q=${selectedCategory}`).then(
+      (data) => setVideos(data.items)
     );
   }, [selectedCategory]);
 
@@ -22,11 +22,11 @@ const ChannelDetail = () => {
 
   useEffect(() => {
     const fetchResults = async () => {
-      const data = await fetchFromAPI(`channels?part=snippet&id=${id}`);
+      const data = await fetchFromYoutubeAPI(`channels?part=snippet&id=${id}`);
 
       setChannelDetail(data?.items[0]);
       console.log(channelDetail);
-      const videosData = await fetchFromAPI(
+      const videosData = await fetchFromYoutubeAPI(
         `search?channelId=${id}&part=snippet%2Cid&order=date`
       );
 

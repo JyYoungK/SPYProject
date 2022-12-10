@@ -2,12 +2,13 @@ import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { Navbar, Sidebar, MusicPlayer, TopPlay } from "./components";
 import {
-  ArtistDetails,
-  TopArtists,
   Discover,
-  Search,
+  SearchMusic,
+  TopArtists,
+  ArtistDetails,
   SongDetails,
-  TopPictures,
+  SearchPicture,
+  DisplayPictures,
   TopVideos,
   VideoDetail,
 } from "./pages";
@@ -25,13 +26,22 @@ const App = () => {
           <div className="flex-1 h-fit pb-40">
             <Routes>
               <Route path="/" element={<Discover />} />
+              <Route
+                path="/searchMusic/:searchTerm"
+                element={<SearchMusic />}
+              />
               <Route path="/top-charts" element={<Discover />} />
               <Route path="/top-artists" element={<TopArtists />} />
               <Route path="/artists/:id" element={<ArtistDetails />} />
               <Route path="/songs/:songid" element={<SongDetails />} />
-              <Route path="/search/:searchTerm" element={<Search />} />
+
               {/* --------------------------------------------------- */}
-              <Route path="/top-pictures" element={<TopPictures />} />
+              <Route
+                path="/searchPicture/:searchTerm"
+                element={<SearchPicture />}
+              />
+              <Route path="/pictures" element={<DisplayPictures />} />
+
               {/* --------------------------------------------------- */}
               <Route path="/top-videos" element={<TopVideos />} />
               <Route path="/video/:id" element={<VideoDetail />} />

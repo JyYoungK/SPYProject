@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Error, Loader, SongCard, MusicSearchBar } from "../components";
 import { useGetSongsBySearchQuery } from "../redux/services/shazamCore";
 
-const Search = () => {
+const SearchMusic = () => {
   const { searchTerm } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetSongsBySearchQuery(searchTerm);
@@ -38,4 +38,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchMusic;

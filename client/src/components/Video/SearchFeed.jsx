@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Sidebar } from "../Sidebar";
 import { SearchBar } from "./SearchBar";
 import { useTheme } from "@mui/material";
-import { fetchFromAPI } from "../../utils/fetchFromYoutubeAPI";
+import { fetchFromYoutubeAPI } from "../../utils/fetchFromYoutubeAPI";
 import { Videos } from "./Videos";
 
 const SearchFeed = () => {
@@ -14,14 +14,14 @@ const SearchFeed = () => {
   const theme = useTheme();
 
   useEffect(() => {
-    fetchFromAPI(`search?part=snippet&q=${searchTerm}`).then((data) =>
+    fetchFromYoutubeAPI(`search?part=snippet&q=${searchTerm}`).then((data) =>
       setVideos(data.items)
     );
   }, [searchTerm]);
 
   // useEffect(() => {
   //   setVideos(null);
-  //   fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) => {
+  //   fetchFromYoutubeAPI(`search?part=snippet&q=${selectedCategory}`).then((data) => {
   //     setVideos(data.items);
   //   });
   // }, [selectedCategory]);

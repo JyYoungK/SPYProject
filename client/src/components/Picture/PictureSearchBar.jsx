@@ -7,7 +7,7 @@ const PictureSearchbar = () => {
   const [searchPicture, setSearchPicture] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent page refresh
-    // navigate(`/search/${searchTerm}`);
+    navigate(`/searchPicture/${searchPicture}`);
   };
 
   return (

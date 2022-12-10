@@ -1,20 +1,20 @@
 import Discover from "./Discover";
+import SearchMusic from "./SearchMusic";
 import TopArtists from "./TopArtists";
 import ArtistDetails from "./ArtistDetails";
 import SongDetails from "./SongDetails";
-import Search from "./Search";
-import TopCharts from "./TopCharts";
-import TopPictures from "./TopPictures";
+import SearchPicture from "./SearchPicture";
+import DisplayPictures from "./DisplayPictures";
 import TopVideos from "./TopVideos";
 import VideoDetail from "./VideoDetail";
 export {
   Discover,
-  Search,
+  SearchMusic,
   TopArtists,
   ArtistDetails,
   SongDetails,
-  TopCharts,
-  TopPictures,
+  SearchPicture,
+  DisplayPictures,
   TopVideos,
   VideoDetail,
 };
