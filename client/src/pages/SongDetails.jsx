@@ -22,7 +22,7 @@ const SongDetails = () => {
     useGetSongDetailsQuery({ songid });
 
   if (isFetchingSongDetails && isFetchinRelatedSongs)
-    return <Loader title="Searching song details" />;
+    return <Loader title="Loading Song Details" />;
 
   if (error) return <Error />;
 

@@ -16,7 +16,6 @@ import VideoCard from "./Video/VideoCard";
 import Video from "./Video/Video";
 import VideoLoader from "./Video/VideoLoader";
 import PictureSearchBar from "./Picture/PictureSearchBar";
-import Pins from "./Picture/Pins";
 import PictureCard from "./Picture/PictureCard";
 export {
   Navbar,
@@ -37,6 +36,5 @@ export {
   Video,
   VideoLoader,
   PictureSearchBar,
-  Pins,
   PictureCard,
 };

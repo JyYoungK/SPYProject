@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const unsplashCoreApi = createApi({
   reducerPath: "unsplashCoreApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://api.unsplash.com/search",
+    baseUrl: "https://api.unsplash.com",
     prepareHeaders: (headers) => {
       headers.set(
         "Authorization",
@@ -15,8 +15,11 @@ export const unsplashCoreApi = createApi({
     },
   }),
   endpoints: (builder) => ({
+    getRandomPhotos: builder.query({
+      query: () => `photos/random?count=20`,
+    }),
     getPicturesBySearch: builder.query({
-      query: (search) => `photos?query=${search}`,
+      query: (search) => `search/photos?query=${search}?per_page=20`,
       //query: (search) => search will give ? instead of /
     }),
   }),
@@ -40,4 +43,5 @@ export const unsplashCoreApi = createApi({
 //   }),
 // });
 
-export const { useGetPicturesBySearchQuery } = unsplashCoreApi;
+export const { useGetPicturesBySearchQuery, useGetRandomPhotosQuery } =
+  unsplashCoreApi;

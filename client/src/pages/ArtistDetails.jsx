@@ -28,7 +28,7 @@ const ArtistDetails = () => {
 
   const songs = data?.tracks?.hits.map((song) => song.track);
   if (isFetchingArtistDetails && isFetching)
-    return <Loader title="Searching song details" />;
+    return <Loader title="Loading Artist Details" />;
 
   if (error) return <Error />;
 

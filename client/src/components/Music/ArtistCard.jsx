@@ -6,17 +6,21 @@ const ArtistCard = ({ track }) => {
 
   return (
     <div
-      className="flex flex-col h-[220px] w-[220px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer"
+      className="mt-6 flex flex-col h-[200px] w-[200px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer"
       onClick={() => navigate(`/artists/${track?.artists[0].adamid}`)}
     >
-      <img
-        alt="song_img"
-        src={track?.images?.coverart}
-        className="w-full h-56 rounded-lg"
-      />
-      <p className="mt-4 font-semibold text-lg text-white truncate">
-        {track?.subtitle}
-      </p>
+      <div className="relative w-full h-56 group">
+        <img
+          alt="song_img"
+          src={track?.images?.coverart}
+          className="w-full h-full rounded-lg"
+        />
+      </div>
+      <div className="mt-4 flex flex-col">
+        <p className="mt-4 font-semibold text-lg text-white truncate">
+          {track?.subtitle}
+        </p>
+      </div>
     </div>
   );
 };

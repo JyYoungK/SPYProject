@@ -19,23 +19,26 @@ const SearchPicture = () => {
   if (error) return <Error />;
 
   return (
-    <div className="flex flex-col">
+    <div className="ml-5 flex flex-col">
       <PictureSearchBar />
       {data?.results ? (
-        <h2 className="ml-5 font-bold text-3xl text-white text-left mt-4 mb-10">
+        <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">
           Showing results for <span className="font-black">{searchTerm}</span>
         </h2>
       ) : (
-        <h2 className="ml-5 font-bold text-3xl text-white text-left mt-4 mb-10">
-          Sorry API exceeded the max amount. Displaying Car pictures instead
+        <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">
+          Sorry, API request call has reached the max amount. Displaying Car
+          pictures instead.
         </h2>
       )}
-
-      <div className="ml-5 flex flex-wrap sm:justify-start justify-center gap-8">
-        {pins.map((pin, i) => (
-          <PictureCard key={i} pin={pin} />
-        ))}
-      </div>
+      <div className="flex w-full h-full justify-center">
+        <div className="columns-5 h-full max-w-7xl sm:columns-2 sm:max-w-xl">
+          {" "}
+          {pins.map((pin, i) => (
+            <PictureCard key={i} pin={pin} />
+          ))}
+        </div>
+      </div>{" "}
     </div>
   );
 };

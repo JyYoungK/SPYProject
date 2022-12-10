@@ -32,7 +32,7 @@ const App = () => {
               />
               <Route path="/top-charts" element={<Discover />} />
               <Route path="/top-artists" element={<TopArtists />} />
-              <Route path="/artists/:id" element={<ArtistDetails />} />
+              <Route path="/artists/:artistid" element={<ArtistDetails />} />
               <Route path="/songs/:songid" element={<SongDetails />} />
 
               {/* --------------------------------------------------- */}
@@ -40,6 +40,7 @@ const App = () => {
                 path="/searchPicture/:searchTerm"
                 element={<SearchPicture />}
               />
+              <Route path="/pictures" element={<DisplayPictures />} />
               <Route path="/pictures" element={<DisplayPictures />} />
 
               {/* --------------------------------------------------- */}
