@@ -2,7 +2,8 @@ import React from "react";
 import { ArtistCard, Error, Loader, MusicSearchBar } from "../components";
 import { useGetTopChartsQuery } from "../redux/services/shazamCore";
 
-const TopArtists = () => {
+const TopArtists = ({ setPage }) => {
+  setPage("Music");
   const { data, isFetching, error } = useGetTopChartsQuery();
 
   if (isFetching) return <Loader title="Loading Artists..." />;

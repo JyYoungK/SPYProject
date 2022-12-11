@@ -8,7 +8,8 @@ import {
   useGetSongRelatedQuery,
 } from "../redux/services/shazamCore";
 
-const SongDetails = () => {
+const SongDetails = ({ setPage }) => {
+  setPage("Music");
   const dispatch = useDispatch();
   const { songid, id: artistId } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);

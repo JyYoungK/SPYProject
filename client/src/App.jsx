@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { Navbar, Sidebar, MusicPlayer, TopPlay } from "./components";
@@ -15,32 +16,48 @@ import {
 
 const App = () => {
   const { activeSong } = useSelector((state) => state.player);
+  const [page, setPage] = useState("");
 
   return (
     <div className="relative flex">
       <Sidebar />
       <div className="flex-1 flex flex-col bg-gradient-to-br from-black to-[#121286]">
-        <Navbar />
+        <Navbar page={page} />
 
         <div className=" h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
           <div className="flex-1 h-fit pb-40">
             <Routes>
-              <Route path="/" element={<Discover />} />
+              <Route path="/" element={<Discover setPage={setPage} />} />
               <Route
                 path="/searchMusic/:searchTerm"
-                element={<SearchMusic />}
+                element={<SearchMusic setPage={setPage} />}
               />
-              <Route path="/top-charts" element={<Discover />} />
-              <Route path="/top-artists" element={<TopArtists />} />
-              <Route path="/artists/:artistid" element={<ArtistDetails />} />
-              <Route path="/songs/:songid" element={<SongDetails />} />
+              <Route
+                path="/top-charts"
+                element={<Discover setPage={setPage} />}
+              />
+              <Route
+                path="/top-artists"
+                element={<TopArtists setPage={setPage} />}
+              />
+              <Route
+                path="/artists/:artistid"
+                element={<ArtistDetails setPage={setPage} />}
+              />
+              <Route
+                path="/songs/:songid"
+                element={<SongDetails setPage={setPage} />}
+              />
 
               {/* --------------------------------------------------- */}
               <Route
                 path="/searchPicture/:searchTerm"
-                element={<SearchPicture />}
+                element={<SearchPicture setPage={setPage} />}
               />
-              <Route path="/pictures" element={<DisplayPictures />} />
+              <Route
+                path="/pictures"
+                element={<DisplayPictures setPage={setPage} />}
+              />
               {/* --------------------------------------------------- */}
               <Route path="/top-videos" element={<TopVideos />} />
               <Route path="/video/:videoid" element={<VideoDetails />} />

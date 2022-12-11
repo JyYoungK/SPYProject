@@ -5,7 +5,8 @@ import { PictureDetails } from "./";
 import { useGetPicturesBySearchQuery } from "../redux/services/unsplashCore";
 import dummyPictureJSON from "../assets/dummyPictureData.json"; //Read data from local json file
 
-const SearchPicture = () => {
+const SearchPicture = ({ setPage }) => {
+  setPage("Picture");
   const { searchTerm } = useParams();
   const { data, isFetching, error } = useGetPicturesBySearchQuery(searchTerm);
   const [openModal, setOpenModal] = useState(false);
@@ -27,7 +28,7 @@ const SearchPicture = () => {
 
   return (
     <div className="ml-5 flex flex-col">
-      <PictureSearchBar />
+      {/* <PictureSearchBar /> */}
 
       {openModal && (
         <PictureDetails toggleModal={toggleModal} openPin={openPin} />

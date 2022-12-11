@@ -4,7 +4,8 @@ import { PictureDetails } from "./";
 import { useGetRandomPhotosQuery } from "../redux/services/unsplashCore";
 import dummyPictureJSON from "../assets/dummyPictureData.json"; //Read data from local json file
 
-const DisplayPictures = () => {
+const DisplayPictures = ({ setPage }) => {
+  setPage("Picture");
   const { data, isFetching, error } = useGetRandomPhotosQuery();
   const [openModal, setOpenModal] = useState(false);
   const [openPin, setOpenPin] = useState();
@@ -25,7 +26,7 @@ const DisplayPictures = () => {
 
   return (
     <div className="ml-5 flex flex-col ">
-      <PictureSearchBar className="fixed bottom-0 left-0 w-full" />
+      {/* <PictureSearchBar className="fixed bottom-0 left-0 w-full" /> */}
 
       {openModal && (
         <PictureDetails toggleModal={toggleModal} openPin={openPin} />

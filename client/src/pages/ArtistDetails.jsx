@@ -13,7 +13,8 @@ import {
   useGetSongsBySearchQuery,
 } from "../redux/services/shazamCore";
 
-const ArtistDetails = () => {
+const ArtistDetails = ({ setPage }) => {
+  setPage("Music");
   const { artistid: artistId } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const {

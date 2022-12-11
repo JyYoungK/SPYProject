@@ -1,18 +1,18 @@
 import React from "react";
 import Toggle from "./toggle";
-
-const Navbar = () => {
+import MusicSearchbar from "../Music/MusicSearchBar";
+import PictureSearchbar from "../Picture/PictureSearchBar";
+const Navbar = ({ page }) => {
+  console.log(page);
   return (
-    <header className="text-white bg-black dark:bg-black body-font ">
-      <div className="flex lg:container flex-col flex-wrap p-5 mx-auto md:items-center md:flex-row ">
-        <div className="flex">
-          <a
-            href="javascript.void(0)"
-            className="flex items-center w-40 mb-4 font-medium text-white title-font md:mb-0 text-right"
-          >
-            Navbar
-          </a>
-        </div>
+    <header className="ml-5 mt-7 flex flex-row items-center text-white bg-black dark:bg-black body-font ">
+      <div className="w-full">
+        {page === "Music" ? <MusicSearchbar /> : <PictureSearchbar />}
+      </div>
+
+      <div className="flex flex-row items-center justify-end w-full">
+        <div>Theme</div>
+        <div>About</div>
       </div>
     </header>
   );
