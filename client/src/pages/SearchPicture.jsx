@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Error, Loader, PictureCard, PictureSearchBar } from "../components";
+import { PictureDetails } from "./";
 import { useGetPicturesBySearchQuery } from "../redux/services/unsplashCore";
 import dummyPictureJSON from "../assets/dummyPictureData.json"; //Read data from local json file
 
 const SearchPicture = () => {
   const { searchTerm } = useParams();
   const { data, isFetching, error } = useGetPicturesBySearchQuery(searchTerm);
+  const [openModal, setOpenModal] = useState(false);
+  const [openPin, setOpenPin] = useState();
+  const toggleModal = () => {
+    setOpenModal(!openModal);
+  };
+
   let pins;
   if (data?.results) {
     pins = data.results;
@@ -21,7 +28,12 @@ const SearchPicture = () => {
   return (
     <div className="ml-5 flex flex-col">
       <PictureSearchBar />
-      {data?.results ? (
+
+      {openModal && (
+        <PictureDetails toggleModal={toggleModal} openPin={openPin} />
+      )}
+
+      {data ? (
         <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">
           Showing results for <span className="font-black">{searchTerm}</span>
         </h2>
@@ -38,8 +50,8 @@ const SearchPicture = () => {
               <PictureCard
                 key={i}
                 pin={pin}
-                // openModal={toggleModal}
-                // setOpenPin={setOpenPin}
+                openModal={toggleModal}
+                setOpenPin={setOpenPin}
               />
             ))}
           </div>

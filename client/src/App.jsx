@@ -9,7 +9,6 @@ import {
   SongDetails,
   SearchPicture,
   DisplayPictures,
-  PictureDetails,
   TopVideos,
   VideoDetails,
 } from "./pages";
@@ -42,8 +41,6 @@ const App = () => {
                 element={<SearchPicture />}
               />
               <Route path="/pictures" element={<DisplayPictures />} />
-              <Route path="/pictures/:pictureid" element={<PictureDetails />} />
-
               {/* --------------------------------------------------- */}
               <Route path="/top-videos" element={<TopVideos />} />
               <Route path="/video/:videoid" element={<VideoDetails />} />

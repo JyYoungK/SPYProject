@@ -7,7 +7,7 @@ const MusicSearchbar = () => {
   const [searchMusic, setSearchMusic] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent page refresh
-    navigate(`/searchMusic/${searchMusic}`);
+    navigate(`/searchMusic/${searchMusic}`); //SongDetails
   };
 
   return (
