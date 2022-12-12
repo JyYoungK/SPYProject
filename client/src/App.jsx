@@ -1,7 +1,17 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { Navbar, Sidebar, MusicPlayer, TopPlay } from "./components";
+import {
+  Navbar,
+  Sidebar,
+  MusicPlayer,
+  TopPlay,
+  ChannelDetail,
+  VideoDetail,
+  SearchFeed,
+  Feed,
+} from "./components";
+
 import {
   TopCharts,
   SearchMusic,
@@ -10,8 +20,8 @@ import {
   SongDetails,
   SearchPicture,
   DisplayPictures,
-  TopVideos,
-  VideoDetails,
+  // TopVideos,
+  // VideoDetails,
 } from "./pages";
 
 const App = () => {
@@ -65,18 +75,17 @@ const App = () => {
               {/* --------------------------------------------------- */}
               <Route
                 path="/top-videos"
-                element={<TopVideos setPage={handleSetPage} />}
+                element={<Feed setPage={handleSetPage} />}
               />
-              <Route
-                path="/video/:videoid"
-                element={<VideoDetails setPage={handleSetPage} />}
-              />
+              <Route path="/video/:id" element={<VideoDetail />} />
+              <Route path="/channel/:id" element={<ChannelDetail />} />
+              <Route path="/search/:searchTerm" element={<SearchFeed />} />
             </Routes>
           </div>
-          {/* <div className=" xl:sticky relative top-0 h-fit">
+          <div className=" xl:sticky relative top-0 h-fit">
             {activeSong?.title && <MusicPlayer />}
             <TopPlay />
-          </div> */}
+          </div>
         </div>
       </div>
 

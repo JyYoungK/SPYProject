@@ -6,8 +6,6 @@ import SongDetails from "./SongDetails";
 import SearchPicture from "./SearchPicture";
 import DisplayPictures from "./DisplayPictures";
 import PictureDetails from "./PictureDetails";
-import TopVideos from "./TopVideos";
-import VideoDetails from "./VideoDetails";
 export {
   TopCharts,
   SearchMusic,
@@ -17,6 +15,4 @@ export {
   SearchPicture,
   DisplayPictures,
   PictureDetails,
-  TopVideos,
-  VideoDetails,
 };

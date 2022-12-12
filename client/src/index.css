@@ -44,6 +44,11 @@
 
 @media screen and (max-width: 600px) {
   .react-player {
-    height: 45vh !important;
+    height: 55vh !important;
+    padding-top: 56.25%;
+    position: relative;
+  }
+  .react-player > div {
+    position: absolute;
   }
 }
