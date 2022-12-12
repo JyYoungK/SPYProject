@@ -34,7 +34,7 @@ const App = () => {
       <div className="flex-1 flex flex-col bg-gradient-to-br from-black to-[#121286]">
         <Navbar page={page} />
 
-        <div className=" h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
+        <div className=" h-[calc(100vh-100px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
           <div className="flex-1 h-fit pb-40">
             <Routes>
               <Route path="/" element={<TopCharts setPage={handleSetPage} />} />

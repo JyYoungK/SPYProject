@@ -34,7 +34,7 @@ const NavLinks = ({ handleClick }) => (
       <NavLink
         key={item.name}
         to={item.to}
-        className="flex flex-row justify-start items-center my-8 text-sm font-medium text-gray-400 hover:text-cyan-400 active:bg-violet-700"
+        className="flex flex-row justify-start items-center my-8 text-sm font-medium text-gray-400 hover:text-cyan-400 "
         onClick={() => handleClick && handleClick()} //If handleClick is passed, call it
       >
         <item.icon className="w-6 h-6 mr-2 " />
@@ -49,7 +49,7 @@ const NavLinks = ({ handleClick }) => (
       <NavLink
         key={item.name}
         to={item.to}
-        className="flex flex-row justify-start items-center my-8 text-sm font-medium text-gray-400 hover:text-cyan-400 active:bg-violet-700"
+        className="flex flex-row justify-start items-center my-8 text-sm font-medium text-gray-400 hover:text-cyan-400 "
         onClick={() => handleClick && handleClick()} //If handleClick is passed, call it
       >
         <item.icon className="w-6 h-6 mr-2 " />
@@ -64,7 +64,7 @@ const NavLinks = ({ handleClick }) => (
       <NavLink
         key={item.name}
         to={item.to}
-        className="flex flex-row justify-start items-center my-8 text-sm font-medium text-gray-400 hover:text-cyan-400 active:bg-violet-700"
+        className="flex flex-row justify-start items-center my-8 text-sm font-medium text-gray-400 hover:text-cyan-400 "
         onClick={() => handleClick && handleClick()} //If handleClick is passed, call it
       >
         <item.icon className="w-6 h-6 mr-2 " />
@@ -79,13 +79,13 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="md:flex hidden flex-col w-[180px] pt-12  px-4 bg-[#191624]">
+      <div className="md:flex hidden flex-col w-[180px] px-4 bg-[#191624]">
         <img src={logo} alt="logo" className="w-full h-20 object-contain" />
         <NavLinks />
       </div>
 
       {/* Mobile sidebar Burger Menu */}
-      <div className="absolute md:hidden block mt-12 top-6 right-3">
+      <div className="absolute md:hidden block mt-4 top-6 right-3">
         {!mobileMenuOpen ? (
           <HiOutlineMenu
             className="w-6 h-6 mr-2 text-white"
