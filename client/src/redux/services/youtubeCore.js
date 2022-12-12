@@ -14,32 +14,20 @@ export const youtubeCoreApi = createApi({
     getTopVideos: builder.query({
       query: () => "search/?query=trending&number=40&country=us&lang=en",
     }),
-    // getChannelDetails: builder.query({
-    //   query: () => `channel/details/?channelId=UCt9dsq-hnrMDk40elCbkYjg`,
-    // }),
-    // getSongsByGenre: builder.query({
-    //   query: (genre) => `/charts/genre-world?genre_code=${genre}`,
-    // }),
-    // getSongsByCountry: builder.query({
-    //   query: (countryCode) => `/charts/country?country_code=${countryCode}`,
-    // }),
-    // getSongsBySearch: builder.query({
-    //   query: (searchTerm) =>
-    //     `/search/multi?search_type=SONGS_ARTISTS&query=${searchTerm}`,
-    // }),
-    // getArtistDetails: builder.query({
-    //   query: (artistId) => `/artists/details?artist_id=${artistId}`,
-    // }),
-    // getSongDetails: builder.query({
-    //   query: ({ songid }) => `/tracks/details?track_id=${songid}`,
-    // }),
-    // getSongRelated: builder.query({
-    //   query: ({ songid }) => `/tracks/related?track_id=${songid}`,
-    // }),
+    getVideoDetails: builder.query({
+      query: (id) => `video/details/?videoId=${id}`,
+    }),
+    getRelatedVideos: builder.query({
+      query: (id) => `recommendation/?videoId=${id}`,
+    }),
   }),
 });
 
-export const { useGetTopVideosQuery } = youtubeCoreApi;
+export const {
+  useGetTopVideosQuery,
+  useGetVideoDetailsQuery,
+  useGetRelatedVideosQuery,
+} = youtubeCoreApi;
 
 export const youtubeChannelApi = createApi({
   reducerPath: "youtubeChannelApi",
@@ -56,12 +44,11 @@ export const youtubeChannelApi = createApi({
       query: (channel_id) =>
         `channels?part=snippet%2Cstatistics&id=${channel_id}`,
     }),
-    getVideoDetails: builder.query({
-      query: (video_id) =>
-        `videos?part=contentDetails%2Csnippet%2Cstatistics&id=${video_id}`,
-    }),
+    // getVideoDetails: builder.query({
+    //   query: (video_id) =>
+    //     `videos?part=contentDetails%2Csnippet%2Cstatistics&id=${video_id}`,
+    // }),
   }),
 });
 
-export const { useGetChannelDetailsQuery, useGetVideoDetailsQuery } =
-  youtubeChannelApi;
+export const { useGetChannelDetailsQuery } = youtubeChannelApi;

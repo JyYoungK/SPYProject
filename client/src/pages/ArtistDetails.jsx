@@ -24,11 +24,12 @@ const ArtistDetails = ({ setPage }) => {
     artistData?.data[0].attributes.name
   );
 
+  if (isFetchingArtistDetails && isFetching)
+    return <Loader title="Loading Artist Details" />;
+
   let working_aristData;
   let songs;
-  //524929515 lady gaga id
 
-  console.log(artistData);
   if (error?.status === 429) {
     working_aristData = dummyArtistDataJSON;
     songs = dummyArtistDetailJSON.tracks.hits.map((song) => song.track);
@@ -38,9 +39,6 @@ const ArtistDetails = ({ setPage }) => {
     working_aristData = artistData?.data[0];
     songs = data?.tracks?.hits.map((song) => song.track);
   }
-
-  if (isFetchingArtistDetails && isFetching)
-    return <Loader title="Loading Artist Details" />;
 
   return (
     <div className="ml-5 flex flex-col">

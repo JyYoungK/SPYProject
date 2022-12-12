@@ -73,10 +73,10 @@ const App = () => {
               />
             </Routes>
           </div>
-          <div className=" xl:sticky relative top-0 h-fit">
+          {/* <div className=" xl:sticky relative top-0 h-fit">
             {activeSong?.title && <MusicPlayer />}
             <TopPlay />
-          </div>
+          </div> */}
         </div>
       </div>
 

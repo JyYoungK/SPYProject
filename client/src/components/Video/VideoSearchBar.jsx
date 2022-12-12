@@ -1,47 +1,34 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Paper, IconButton } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
-import { InputBase } from "@mui/material";
+import { FiSearch } from "react-icons/fi";
 
 const VideoSearchbar = () => {
-  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
-
-  const onhandleSubmit = (e) => {
-    e.preventDefault();
-
-    if (searchTerm) {
-      navigate(`/search/${searchTerm}`);
-
-      setSearchTerm("");
-    }
+  const [searchVideo, setSearchVideo] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent page refresh
+    navigate(`/search/${searchVideo}`); //VideoDetails
   };
 
   return (
-    <Paper
-      component="form"
-      onSubmit={onhandleSubmit}
-      sx={{
-        pl: 2,
-        boxShadow: "none",
-        mr: { sm: 5 },
-      }}
-    >
-      <InputBase
-        className="search-bar"
-        placeholder="Search..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <IconButton
-        type="submit"
-        sx={{ p: "10px", color: "red" }}
-        aria-label="search"
-      >
-        <SearchIcon />
-      </IconButton>
-    </Paper>
+    <form onSubmit={handleSubmit} autoComplete="off" className="p-2 ">
+      <label htmlFor="search-field" className="sr-only">
+        Search all files
+      </label>
+      <div className="flex flex-row justify-start items-center bg-gray-300 border-4 border-red-600 rounded-3xl">
+        <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-red-600" />
+        <input
+          name="search-field"
+          autoComplete="off"
+          id="search-field"
+          className="flex-1 bg-transparent border-none placeholder-red-600 outline-none text-base text-red-600 p-4"
+          placeholder="Search on Youtube"
+          type="search"
+          value={searchVideo}
+          onChange={(e) => setSearchVideo(e.target.value)}
+        />
+      </div>
+    </form>
   );
 };
 
