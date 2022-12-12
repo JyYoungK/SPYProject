@@ -6,6 +6,7 @@ import SongDetails from "./SongDetails";
 import SearchPicture from "./SearchPicture";
 import DisplayPictures from "./DisplayPictures";
 import PictureDetails from "./PictureDetails";
+import SearchVideo from "./SearchVideo";
 import TopVideo from "./TopVideo";
 import MovieVideo from "./MovieVideo";
 import SportsVideo from "./SportsVideo";
@@ -21,6 +22,7 @@ export {
   SearchPicture,
   DisplayPictures,
   PictureDetails,
+  SearchVideo,
   TopVideo,
   VideoDetail,
   ChannelDetail,

@@ -13,7 +13,6 @@ import RelatedSongs from "./Music/RelatedSongs";
 import MusicPlayer from "./Music/MusicPlayer";
 import PictureSearchBar from "./Picture/PictureSearchBar";
 import PictureCard from "./Picture/PictureCard";
-import SearchFeed from "./Video/SearchFeed";
 import ChannelCard from "./Video/ChannelCard";
 import VideoCard from "./Video/VideoCard";
 import Videos from "./Video/Videos";
@@ -33,7 +32,6 @@ export {
   MusicPlayer,
   PictureSearchBar,
   PictureCard,
-  SearchFeed,
   ChannelCard,
   VideoCard,
   Videos,

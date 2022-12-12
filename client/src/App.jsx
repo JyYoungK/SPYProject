@@ -1,13 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import {
-  Navbar,
-  Sidebar,
-  MusicPlayer,
-  TopPlay,
-  SearchFeed,
-} from "./components";
+import { Navbar, Sidebar, MusicPlayer, TopPlay } from "./components";
 
 import {
   TopCharts,
@@ -17,6 +11,7 @@ import {
   SongDetails,
   SearchPicture,
   DisplayPictures,
+  SearchVideo,
   TopVideo,
   MovieVideo,
   SportsVideo,
@@ -92,7 +87,7 @@ const App = () => {
               />
               <Route path="/video/:id" element={<VideoDetail />} />
               <Route path="/channel/:id" element={<ChannelDetail />} />
-              <Route path="/search/:searchTerm" element={<SearchFeed />} />
+              <Route path="/search/:searchTerm" element={<SearchVideo />} />
             </Routes>
           </div>
           <div className=" xl:sticky relative top-0 h-fit">

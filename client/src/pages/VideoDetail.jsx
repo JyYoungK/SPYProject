@@ -3,9 +3,10 @@ import { Link, useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
 import { Typography, Box, Stack } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-
 import { Videos, Loader } from "../components";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container } from "react-bootstrap";
 
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState(null);
@@ -13,16 +14,16 @@ const VideoDetail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetchFromAPI(`videos?part=snippet,statistics&id=${id}`).then((data) =>
-      setVideoDetail(data.items[0])
-    );
+    fetchFromAPI(
+      `videos?part=contentDetails%2Csnippet%2Cstatistics&id=${id}`
+    ).then((data) => setVideoDetail(data.items[0]));
 
     fetchFromAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`).then(
       (data) => setVideos(data.items)
     );
   }, [id]);
 
-  if (!videoDetail?.snippet) return <Loader />;
+  if (!videoDetail?.snippet) return <Loader title={`Searching videos...`} />;
 
   const {
     snippet: { title, channelId, channelTitle },
@@ -34,13 +35,25 @@ const VideoDetail = () => {
       <Stack className="pb-5 " direction={{ xs: "column", md: "row" }}>
         <Box flex={1}>
           <Box className="bg-black w-full ">
-            <div className="w-auto h-auto">
+            <Container>
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src={`https://www.youtube.com/embed/${id}`}
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  title="video"
+                  className="react-player "
+                />
+              </div>
+            </Container>
+            {/* <div className=" w-full h-full">
               <ReactPlayer
                 url={`https://www.youtube.com/watch?v=${id}`}
                 className="react-player "
                 controls
               />
-            </div>
+            </div> */}
             <Typography
               color="#fff"
               variant="h5"
