@@ -2,9 +2,9 @@ import React from "react";
 import { Box, CardContent, CardMedia, Typography } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Link } from "react-router-dom";
-import { demoProfilePicture } from "../../utils/constants";
+import { demoProfilePicture } from "../../assets/constants";
 
-export const ChannelCard = ({ channelDetail, marginTop }) => (
+const ChannelCard = ({ channelDetail, marginTop }) => (
   <Box
     sx={{
       boxShadow: "none",
@@ -44,7 +44,7 @@ export const ChannelCard = ({ channelDetail, marginTop }) => (
         <Typography variant="h6">
           {channelDetail?.snippet?.title}{" "}
           <CheckCircleIcon
-            sx={{ fontSize: "20px", color: "gray", ml: "5px" }}
+            sx={{ fontSize: "14px", color: "gray", ml: "5px" }}
           />
         </Typography>
         {channelDetail?.statistics?.subscriberCount && (
@@ -59,3 +59,5 @@ export const ChannelCard = ({ channelDetail, marginTop }) => (
     </Link>
   </Box>
 );
+
+export default ChannelCard;

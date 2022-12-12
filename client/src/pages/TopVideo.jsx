@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 
 import { fetchFromAPI } from "../utils/fetchFromAPI";
-import { Videos, Sidebar } from "./";
+import { Videos, Sidebar } from "../components";
 
-const Feed = ({ setPage }) => {
+const TopVideo = ({ setPage }) => {
   const [selectedCategory, setSelectedCategory] = useState("New");
   const [videos, setVideos] = useState(null);
 
@@ -34,4 +34,4 @@ const Feed = ({ setPage }) => {
   );
 };
 
-export default Feed;
+export default TopVideo;

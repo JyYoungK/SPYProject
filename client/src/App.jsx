@@ -6,10 +6,7 @@ import {
   Sidebar,
   MusicPlayer,
   TopPlay,
-  ChannelDetail,
-  VideoDetail,
   SearchFeed,
-  Feed,
 } from "./components";
 
 import {
@@ -20,8 +17,9 @@ import {
   SongDetails,
   SearchPicture,
   DisplayPictures,
-  // TopVideos,
-  // VideoDetails,
+  TopVideo,
+  VideoDetail,
+  ChannelDetail,
 } from "./pages";
 
 const App = () => {
@@ -75,7 +73,7 @@ const App = () => {
               {/* --------------------------------------------------- */}
               <Route
                 path="/top-videos"
-                element={<Feed setPage={handleSetPage} />}
+                element={<TopVideo setPage={handleSetPage} />}
               />
               <Route path="/video/:id" element={<VideoDetail />} />
               <Route path="/channel/:id" element={<ChannelDetail />} />

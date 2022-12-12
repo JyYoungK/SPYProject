@@ -11,13 +11,12 @@ import MusicHeader from "./Music/MusicHeader";
 import SongBar from "./Music/SongBar";
 import RelatedSongs from "./Music/RelatedSongs";
 import MusicPlayer from "./Music/MusicPlayer";
-// import VideoSearchBar from "./Video/VideoSearchBar";
-// import VideoCard from "./Video/VideoCard";
-// import RelatedVideoCard from "./Video/RelatedVideoCard";
-// import Video from "./Video/Video";
-// import VideoLoader from "./Video/VideoLoader";
 import PictureSearchBar from "./Picture/PictureSearchBar";
 import PictureCard from "./Picture/PictureCard";
+import SearchFeed from "./Video/SearchFeed";
+import ChannelCard from "./Video/ChannelCard";
+import VideoCard from "./Video/VideoCard";
+import Videos from "./Video/Videos";
 export {
   Navbar,
   Sidebar,
@@ -32,19 +31,10 @@ export {
   SongBar,
   RelatedSongs,
   MusicPlayer,
-  // VideoSearchBar,
-  // VideoCard,
-  // RelatedVideoCard,
-  // Video,
-  // VideoLoader,
   PictureSearchBar,
   PictureCard,
+  SearchFeed,
+  ChannelCard,
+  VideoCard,
+  Videos,
 };
-
-export { default as ChannelCard } from "./ChannelCard";
-export { default as VideoCard } from "./VideoCard";
-export { default as ChannelDetail } from "./ChannelDetail";
-export { default as Feed } from "./Feed";
-export { default as VideoDetail } from "./VideoDetail";
-export { default as SearchFeed } from "./SearchFeed";
-export { default as Videos } from "./Videos";
