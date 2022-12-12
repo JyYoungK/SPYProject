@@ -1,4 +1,4 @@
-import Discover from "./Discover";
+import TopCharts from "./TopCharts";
 import SearchMusic from "./SearchMusic";
 import TopArtists from "./TopArtists";
 import ArtistDetails from "./ArtistDetails";
@@ -9,7 +9,7 @@ import PictureDetails from "./PictureDetails";
 import TopVideos from "./TopVideos";
 import VideoDetails from "./VideoDetails";
 export {
-  Discover,
+  TopCharts,
   SearchMusic,
   TopArtists,
   ArtistDetails,

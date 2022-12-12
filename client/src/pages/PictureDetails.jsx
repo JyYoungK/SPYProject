@@ -5,8 +5,8 @@ import { GrClose } from "react-icons/gr";
 import { IoLocationSharp } from "react-icons/io5";
 const PictureDetails = ({ toggleModal, openPin }) => {
   return (
-    <div className="relative w-full flex flex-row bg-white ">
-      <div className="mb-8  w-full items-center ">
+    <div className="relative h-80 w-full flex flex-row bg-white ">
+      <div className="mb-8 w-full items-center ">
         <a href={openPin?.links.html} target="_blank">
           <img
             alt="picture"
@@ -46,7 +46,7 @@ const PictureDetails = ({ toggleModal, openPin }) => {
               {openPin?.user?.for_hire ? (
                 openPin?.user?.for_hire ? (
                   <p className="font-bold sm:text-lg text-md text-blue-400">
-                    "Hire me!
+                    Hire me!
                   </p>
                 ) : (
                   <p className="font-bold sm:text-lg text-md text-green-400">
@@ -67,44 +67,59 @@ const PictureDetails = ({ toggleModal, openPin }) => {
           </div>
         </div>
         <div className="bg-orange-100 h-full ">
-          <div className="ml-5 mt-8 flex flex-row w-full ">
-            <div className="flex flex-col mx-4">
-              <div className="text-gray-600 sm:text-base md:text-xl">Views</div>
+          <div className="ml-5 mt-4 flex flex-row  w-full ">
+            <div className="flex flex-col mx-5">
+              <div className="text-gray-600 sm:text-base md:text-md">Views</div>
               <div className="sm:text-base md:text-xl">
-                {openPin?.views ? openPin?.views : "?"}
+                {openPin?.views
+                  ? parseInt(openPin?.views).toLocaleString()
+                  : "?"}
               </div>
             </div>
-            <div className="flex flex-col mx-4">
-              <div className="text-gray-600 sm:text-base md:text-xl">Likes</div>
+            <div className="flex flex-col mx-5">
+              <div className="text-gray-600 sm:text-base md:text-md">Likes</div>
               <div className="sm:text-base md:text-xl">
-                {openPin?.likes ? openPin?.likes : "?"}
+                {openPin?.likes
+                  ? parseInt(openPin?.likes).toLocaleString()
+                  : "?"}
               </div>
             </div>
-            <div className="flex flex-col mx-4">
-              <div className="text-gray-600 sm:text-base md:text-xl">
+            <div className="flex flex-col mx-5">
+              <div className="text-gray-600 sm:text-base md:text-md">
                 Downloads
               </div>
               <div className="sm:text-base md:text-xl">
-                {openPin?.downloads ? openPin?.downloads : "?"}
+                {openPin?.downloads
+                  ? parseInt(openPin?.downloads).toLocaleString()
+                  : "?"}
               </div>
             </div>
           </div>
-          <div className="mb-5">
-            <div className="ml-9 mt-8 flex flex-row text-black sm:text-base md:text-xl">
-              <IoLocationSharp className="mr-2" />
-              {openPin?.location?.name ? openPin?.location.name : "Unknown"}
+          <div className="mt-5 mb-2">
+            <div className="ml-9 mt-2 flex flex-row justify-between text-black sm:text-base md:text-lg">
+              <div className="flex flex-row">
+                <IoLocationSharp className="mr-2" />
+                {openPin?.location?.name
+                  ? openPin?.location.name.length > 12
+                    ? openPin?.location.name.split(",")[0]
+                    : openPin?.location.name
+                  : "Unknown"}
+              </div>
+              <div className="flex flex-row">
+                <AiFillDatabase className="mr-2" />
+                <div className="mr-11">
+                  {openPin?.user?.updated_at
+                    ? openPin?.user.updated_at.slice(0, 10)
+                    : "Unknown"}
+                </div>
+              </div>
             </div>
-            <div className="ml-9 mt-4 flex flex-row text-black sm:text-base md:text-xl">
-              <AiFillDatabase className="mr-2" />
-              {openPin?.user?.updated_at ? openPin?.user.updated_at : "Unknown"}
-            </div>
-            <div className="ml-9 mt-4 flex flex-row text-black sm:text-base md:text-xl">
+
+            <div className="ml-9 mt-2 flex flex-row text-black sm:text-base md:text-lg">
               <BsCameraFill className="mr-2" />
-              {openPin?.exif?.name
-                ? openPin?.exif?.name + " " + openPin?.exif?.aperture
-                : "Unknown"}
+              {openPin?.exif?.name ? openPin?.exif?.name : "Unknown"}
             </div>
-            <div className="ml-9 mt-4 flex flex-row text-black sm:text-base md:text-xl">
+            <div className="ml-9 mt-2 flex flex-row text-black sm:text-base md:text-lg">
               <AiFillInstagram className="mr-2" />
               {openPin?.user?.instagram_username
                 ? openPin?.user?.instagram_username
