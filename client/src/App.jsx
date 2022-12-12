@@ -18,6 +18,9 @@ import {
   SearchPicture,
   DisplayPictures,
   TopVideo,
+  MovieVideo,
+  SportsVideo,
+  GamingVideo,
   VideoDetail,
   ChannelDetail,
 } from "./pages";
@@ -74,6 +77,18 @@ const App = () => {
               <Route
                 path="/top-videos"
                 element={<TopVideo setPage={handleSetPage} />}
+              />
+              <Route
+                path="/movie-videos"
+                element={<MovieVideo setPage={handleSetPage} />}
+              />
+              <Route
+                path="/sports-videos"
+                element={<SportsVideo setPage={handleSetPage} />}
+              />
+              <Route
+                path="/gaming-videos"
+                element={<GamingVideo setPage={handleSetPage} />}
               />
               <Route path="/video/:id" element={<VideoDetail />} />
               <Route path="/channel/:id" element={<ChannelDetail />} />

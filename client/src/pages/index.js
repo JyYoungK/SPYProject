@@ -7,6 +7,9 @@ import SearchPicture from "./SearchPicture";
 import DisplayPictures from "./DisplayPictures";
 import PictureDetails from "./PictureDetails";
 import TopVideo from "./TopVideo";
+import MovieVideo from "./MovieVideo";
+import SportsVideo from "./SportsVideo";
+import GamingVideo from "./GamingVideo";
 import VideoDetail from "./VideoDetail";
 import ChannelDetail from "./ChannelDetail";
 export {
@@ -21,4 +24,7 @@ export {
   TopVideo,
   VideoDetail,
   ChannelDetail,
+  MovieVideo,
+  SportsVideo,
+  GamingVideo,
 };

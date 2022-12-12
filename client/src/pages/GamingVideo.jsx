@@ -3,13 +3,13 @@ import { Box, Stack, Typography } from "@mui/material";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 import { Videos } from "../components";
 
-const TopVideo = ({ setPage }) => {
+const GamingVideo = ({ setPage }) => {
   const [videos, setVideos] = useState(null);
 
   useEffect(() => {
     setVideos(null);
     setPage("Video");
-    fetchFromAPI(`search?part=snippet&q=New`).then((data) =>
+    fetchFromAPI(`search?part=snippet&q=Gaming`).then((data) =>
       setVideos(data.items)
     );
   }, []);
@@ -23,7 +23,7 @@ const TopVideo = ({ setPage }) => {
           mb={2}
           sx={{ color: "white" }}
         >
-          New <span style={{ color: "#FC1503" }}>videos</span>
+          Gaming <span style={{ color: "#FC1503" }}>videos</span>
         </Typography>
 
         <Videos videos={videos} />
@@ -32,4 +32,4 @@ const TopVideo = ({ setPage }) => {
   );
 };
 
-export default TopVideo;
+export default GamingVideo;

@@ -20,14 +20,14 @@ const picturelinks = [
 ];
 const videolinks = [
   { name: "Trending", to: "/top-videos", icon: AiOutlineYoutube },
-  { name: "Movie", to: "/top-videos", icon: TbMovie },
-  { name: "Sports", to: "/top-videos", icon: MdSportsSoccer },
-  { name: "Gaming", to: "/top-videos", icon: IoGameControllerOutline },
+  { name: "Movie", to: "/movie-videos", icon: TbMovie },
+  { name: "Sports", to: "/sports-videos", icon: MdSportsSoccer },
+  { name: "Gaming", to: "/gaming-videos", icon: IoGameControllerOutline },
 ];
 
 const NavLinks = ({ handleClick }) => (
   <div>
-    <div className="flex flex-row justify-start items-center my-3 text-2xl font-medium text-green-500">
+    <div className="flex flex-row justify-start items-center text-2xl font-medium text-green-500">
       <b className="text-3xl"> S </b> potify
     </div>
     {musiclinks.map((item) => (
@@ -79,13 +79,13 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="md:flex hidden flex-col w-[180px] pt-8  px-4 bg-[#191624]">
+      <div className="md:flex hidden flex-col w-[180px] pt-12  px-4 bg-[#191624]">
         <img src={logo} alt="logo" className="w-full h-20 object-contain" />
         <NavLinks />
       </div>
 
       {/* Mobile sidebar Burger Menu */}
-      <div className="absolute md:hidden block mt-5 top-6 right-3">
+      <div className="absolute md:hidden block mt-12 top-6 right-3">
         {!mobileMenuOpen ? (
           <HiOutlineMenu
             className="w-6 h-6 mr-2 text-white"
@@ -100,11 +100,10 @@ const Sidebar = () => {
       </div>
 
       <div
-        className={`absolute top-0 h-screen w-2/3 bg-gradient-to-tl py-5 from-white/10 to-[#483D8B] backdrop-blur-lg z-10 p-6 md:hidden smooth-transition ${
+        className={`absolute top-0 h-full w-2/3 bg-gradient-to-tl py-5 from-white/10 to-[#483D8B] backdrop-blur-lg z-10 p-6 md:hidden smooth-transition ${
           mobileMenuOpen ? "left-0" : "-left-full"
         }`}
       >
-        <img src={logo} alt="logo" className="w-full h-14 object-contain" />
         <NavLinks handleClick={() => setMobileMenuOpen(false)} />
       </div>
     </>
