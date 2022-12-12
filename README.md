@@ -11,7 +11,7 @@
 - Redux with Persistent for local storage
 - React dropzone for image uploads
 
-### Backend
+### Backend (Coming up)
 
 - NodeJS for run time
 - ExpressJS for backend framework
