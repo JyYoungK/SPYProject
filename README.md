@@ -9,6 +9,7 @@
 - Formik + yup for form validation
 - Redux Toolkit for statemanagement
 - Redux with Persistent for local storage
+- React Bootstrap for video
 - Tailwind/MUI for Design and CSS
 
 ### Backend (Coming up)
