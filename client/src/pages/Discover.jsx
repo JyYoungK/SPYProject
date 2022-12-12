@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Error, Loader, SongCard, MusicSearchBar } from "../components";
+import { Error, Loader, SongCard } from "../components";
 import { selectGenreListId } from "../redux/features/playerSlice";
 import { useGetSongsByGenreQuery } from "../redux/services/shazamCore";
 import { genres } from "../assets/constants";
+import dummyDiscoverJSON from "../assets/dummyDiscoverData.json"; //Read data from local json file
 
 const Discover = ({ setPage }) => {
-  setPage("Music");
+  useEffect(() => {
+    setPage("Music");
+  }, []);
   const dispatch = useDispatch();
   const { genreListId } = useSelector((state) => state.player);
   const { activeSong, isPlaying } = useSelector((state) => state.player);
@@ -14,19 +17,35 @@ const Discover = ({ setPage }) => {
     genreListId || "POP"
   );
 
+  let workingData;
+
+  if (error?.status === 429) {
+    workingData = dummyDiscoverJSON;
+  } else if (error) {
+    return <Error />;
+  } else {
+    workingData = data;
+  }
+
   if (isFetching) return <Loader title="Loading Songs..." />;
 
-  if (error) return <Error />;
+  // if (error) return <Error />;
 
   const genreTitle = genres.find(({ value }) => value === genreListId)?.title;
 
   return (
     <div className="ml-5 flex flex-col">
-      <MusicSearchBar />
       <div className="w-full flex justify-between items-center sm:flex-row flex-col">
-        <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">
-          Top Charts {genreTitle}{" "}
-        </h2>
+        {error?.status === 429 ? (
+          <h2 className="font-bold text-xl text-white text-left mt-4 mb-10">
+            Sorry, API request call has reached the max amount. Displaying
+            random charts instead.
+          </h2>
+        ) : (
+          <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">
+            Top Charts {genreTitle}{" "}
+          </h2>
+        )}
 
         <select
           onChange={(e) => dispatch(selectGenreListId(e.target.value))}
@@ -42,13 +61,13 @@ const Discover = ({ setPage }) => {
       </div>
 
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
-        {data?.map((song, i) => (
+        {workingData?.map((song, i) => (
           <SongCard
             key={song.key}
             song={song}
             isPlaying={isPlaying}
             activeSong={activeSong}
-            data={data}
+            data={workingData}
             i={i}
           />
         ))}

@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Error, Loader, PictureCard, PictureSearchBar } from "../components";
+import { Error, Loader, PictureCard } from "../components";
 import { PictureDetails } from "./";
 import { useGetPicturesBySearchQuery } from "../redux/services/unsplashCore";
 import dummyPictureJSON from "../assets/dummyPictureData.json"; //Read data from local json file
 
 const SearchPicture = ({ setPage }) => {
-  setPage("Picture");
+  useEffect(() => {
+    setPage("Picture");
+  }, []);
   const { searchTerm } = useParams();
   const { data, isFetching, error } = useGetPicturesBySearchQuery(searchTerm);
   const [openModal, setOpenModal] = useState(false);
@@ -15,33 +17,31 @@ const SearchPicture = ({ setPage }) => {
     setOpenModal(!openModal);
   };
 
-  let pins;
-  if (data?.results) {
-    pins = data.results;
-  } else {
-    pins = dummyPictureJSON.results;
-  }
-
   if (isFetching) return <Loader title={`Searching ${searchTerm}...`} />;
 
-  if (error) return <Error />;
+  let pins;
+  if (error?.status === 429) {
+    pins = dummyPictureJSON.results;
+  } else if (error) {
+    return <Error />;
+  } else {
+    pins = data.results;
+  }
 
   return (
     <div className="ml-5 flex flex-col">
-      {/* <PictureSearchBar /> */}
-
       {openModal && (
         <PictureDetails toggleModal={toggleModal} openPin={openPin} />
       )}
 
-      {data ? (
-        <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">
-          Showing results for <span className="font-black">{searchTerm}</span>
+      {error?.status === 429 ? (
+        <h2 className="font-bold text-xl text-white text-left mt-4 mb-10">
+          Sorry, API request call has reached the max amount. Displaying Car
+          pictures instead.
         </h2>
       ) : (
         <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">
-          Sorry, API request call has reached the max amount. Displaying Car
-          pictures instead.
+          Showing results for <span className="font-black">{searchTerm}</span>
         </h2>
       )}
       <div className="flex w-full h-full justify-center">

@@ -1,24 +1,43 @@
-import React from "react";
-import { ArtistCard, Error, Loader, MusicSearchBar } from "../components";
+import React, { useEffect } from "react";
+import { ArtistCard, Error, Loader } from "../components";
 import { useGetTopChartsQuery } from "../redux/services/shazamCore";
+import dummyTopArtistJSON from "../assets/dummyTopArtistData.json"; //Read data from local json file
 
 const TopArtists = ({ setPage }) => {
-  setPage("Music");
+  useEffect(() => {
+    setPage("Music");
+  }, []);
   const { data, isFetching, error } = useGetTopChartsQuery();
+
+  console.log(data);
+
+  let workingData;
+
+  if (error?.status === 429) {
+    workingData = dummyTopArtistJSON;
+  } else if (error) {
+    return <Error />;
+  } else {
+    workingData = data;
+  }
 
   if (isFetching) return <Loader title="Loading Artists..." />;
 
-  if (error) return <Error />;
-
   return (
     <div className="ml-5 flex flex-col">
-      <MusicSearchBar />
-      <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">
-        Top Artists
-      </h2>
+      {error?.status === 429 ? (
+        <h2 className="font-bold text-xl text-white text-left mt-4 mb-10">
+          Sorry, API request call has reached the max amount. Displaying random
+          artists instead.
+        </h2>
+      ) : (
+        <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">
+          Top Artists
+        </h2>
+      )}
 
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
-        {data?.map((track) => (
+        {workingData?.map((track) => (
           <ArtistCard key={track.key} track={track} />
         ))}
       </div>

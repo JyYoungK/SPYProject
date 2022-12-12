@@ -18,6 +18,10 @@ const App = () => {
   const { activeSong } = useSelector((state) => state.player);
   const [page, setPage] = useState("");
 
+  const handleSetPage = (newPage) => {
+    setPage(newPage);
+  };
+
   return (
     <div className="relative flex">
       <Sidebar />
@@ -27,36 +31,36 @@ const App = () => {
         <div className=" h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
           <div className="flex-1 h-fit pb-40">
             <Routes>
-              <Route path="/" element={<Discover setPage={setPage} />} />
+              <Route path="/" element={<Discover setPage={handleSetPage} />} />
               <Route
                 path="/searchMusic/:searchTerm"
-                element={<SearchMusic setPage={setPage} />}
+                element={<SearchMusic setPage={handleSetPage} />}
               />
               <Route
                 path="/top-charts"
-                element={<Discover setPage={setPage} />}
+                element={<Discover setPage={handleSetPage} />}
               />
               <Route
                 path="/top-artists"
-                element={<TopArtists setPage={setPage} />}
+                element={<TopArtists setPage={handleSetPage} />}
               />
               <Route
                 path="/artists/:artistid"
-                element={<ArtistDetails setPage={setPage} />}
+                element={<ArtistDetails setPage={handleSetPage} />}
               />
               <Route
                 path="/songs/:songid"
-                element={<SongDetails setPage={setPage} />}
+                element={<SongDetails setPage={handleSetPage} />}
               />
 
               {/* --------------------------------------------------- */}
               <Route
                 path="/searchPicture/:searchTerm"
-                element={<SearchPicture setPage={setPage} />}
+                element={<SearchPicture setPage={handleSetPage} />}
               />
               <Route
                 path="/pictures"
-                element={<DisplayPictures setPage={setPage} />}
+                element={<DisplayPictures setPage={handleSetPage} />}
               />
               {/* --------------------------------------------------- */}
               <Route path="/top-videos" element={<TopVideos />} />

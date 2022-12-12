@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { MusicHeader, Error, Loader, RelatedSongs } from "../components";
@@ -7,13 +7,16 @@ import {
   useGetSongDetailsQuery,
   useGetSongRelatedQuery,
 } from "../redux/services/shazamCore";
+import dummySongDetailJSON from "../assets/dummySongDetail.json"; //Read data from local json file
+import dummyRelatedSongDataJSON from "../assets/dummyRelatedSongData.json"; //Read data from local json file
 
 const SongDetails = ({ setPage }) => {
-  setPage("Music");
+  useEffect(() => {
+    setPage("Music");
+  }, []);
   const dispatch = useDispatch();
   const { songid, id: artistId } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
-
   const {
     data,
     isFetching: isFetchinRelatedSongs,
@@ -25,7 +28,18 @@ const SongDetails = ({ setPage }) => {
   if (isFetchingSongDetails && isFetchinRelatedSongs)
     return <Loader title="Loading Song Details" />;
 
-  if (error) return <Error />;
+  let working_songData;
+  let working_relatedSongs;
+
+  if (error?.status === 429) {
+    working_songData = dummySongDetailJSON;
+    working_relatedSongs = dummyRelatedSongDataJSON;
+  } else if (error) {
+    return <Error />;
+  } else {
+    working_songData = songData;
+    working_relatedSongs = data;
+  }
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
@@ -38,14 +52,21 @@ const SongDetails = ({ setPage }) => {
 
   return (
     <div className="ml-5 flex flex-col">
-      <MusicHeader artistId={artistId} songData={songData} />
+      {error?.status === 429 ? (
+        <h2 className="font-bold text-xl text-white text-left mt-4 mb-10">
+          Sorry, API request call has reached the max amount. Displaying Bloody
+          Mary by Lady Gaga instead.
+        </h2>
+      ) : null}
+
+      <MusicHeader artistId={artistId} songData={working_songData} />
 
       <div className="mb-10">
         <h2 className="text-white text-3xl font-bold">Lyrics:</h2>
 
         <div className="mt-5">
-          {songData?.sections[1].type === "LYRICS" ? (
-            songData?.sections[1]?.text.map((line, i) => (
+          {working_songData?.sections[1].type === "LYRICS" ? (
+            working_songData?.sections[1]?.text.map((line, i) => (
               <p
                 key={`lyrics-${line}-${i}`}
                 className="text-gray-400 text-base my-1"
@@ -62,7 +83,7 @@ const SongDetails = ({ setPage }) => {
       </div>
 
       <RelatedSongs
-        data={data}
+        data={working_relatedSongs}
         artistId={artistId}
         isPlaying={isPlaying}
         activeSong={activeSong}
