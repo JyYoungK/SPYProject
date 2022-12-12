@@ -9,7 +9,7 @@
 - Formik + yup for form validation
 - Redux Toolkit for statemanagement
 - Redux with Persistent for local storage
-- React dropzone for image uploads
+- Tailwind/MUI for Design and CSS
 
 ### Backend (Coming up)
 
