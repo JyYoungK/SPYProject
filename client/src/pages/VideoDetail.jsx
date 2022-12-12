@@ -55,7 +55,7 @@ const VideoDetail = () => {
               sx={{ color: "#fff" }}
               py={1}
               px={2}
-              className="bg-black"
+              className="bg-black justify-between"
             >
               <Link to={`/channel/${channelId}`}>
                 <Typography
@@ -67,12 +67,7 @@ const VideoDetail = () => {
                   <CheckCircleIcon className="text-2xl text-white-100" />
                 </Typography>
               </Link>
-              <Stack
-                className="pl-80"
-                direction="row"
-                gap="20px"
-                alignItems="center"
-              >
+              <Stack direction="row" gap="20px" alignItems="center">
                 <Typography variant="body1" sx={{ opacity: 0.7 }}>
                   {parseInt(viewCount).toLocaleString()} views
                 </Typography>
