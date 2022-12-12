@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import ReactPlayer from "react-player";
 import { Typography, Box, Stack } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Videos, Loader } from "../components";
@@ -31,7 +30,7 @@ const VideoDetail = () => {
   } = videoDetail;
 
   return (
-    <Box minHeight="95vh">
+    <Box className="ml-5" minHeight="95vh">
       <Stack className="pb-5 " direction={{ xs: "column", md: "row" }}>
         <Box flex={1}>
           <Box className="bg-black w-full ">
@@ -47,13 +46,6 @@ const VideoDetail = () => {
                 />
               </div>
             </Container>
-            {/* <div className=" w-full h-full">
-              <ReactPlayer
-                url={`https://www.youtube.com/watch?v=${id}`}
-                className="react-player "
-                controls
-              />
-            </div> */}
             <Typography
               color="#fff"
               variant="h5"
