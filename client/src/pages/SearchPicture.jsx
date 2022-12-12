@@ -20,6 +20,7 @@ const SearchPicture = ({ setPage }) => {
   if (isFetching) return <Loader title={`Searching ${searchTerm}...`} />;
 
   let pins;
+
   if (error?.status === 429) {
     pins = dummyPictureJSON.results;
   } else if (error) {

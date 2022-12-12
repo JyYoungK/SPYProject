@@ -19,6 +19,8 @@ const Discover = ({ setPage }) => {
 
   let workingData;
 
+  if (isFetching) return <Loader title="Loading Songs..." />;
+
   if (error?.status === 429) {
     workingData = dummyDiscoverJSON;
   } else if (error) {
@@ -26,8 +28,6 @@ const Discover = ({ setPage }) => {
   } else {
     workingData = data;
   }
-
-  if (isFetching) return <Loader title="Loading Songs..." />;
 
   // if (error) return <Error />;
 

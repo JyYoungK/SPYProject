@@ -63,8 +63,14 @@ const App = () => {
                 element={<DisplayPictures setPage={handleSetPage} />}
               />
               {/* --------------------------------------------------- */}
-              <Route path="/top-videos" element={<TopVideos />} />
-              <Route path="/video/:videoid" element={<VideoDetails />} />
+              <Route
+                path="/top-videos"
+                element={<TopVideos setPage={handleSetPage} />}
+              />
+              <Route
+                path="/video/:videoid"
+                element={<VideoDetails setPage={handleSetPage} />}
+              />
             </Routes>
           </div>
           <div className=" xl:sticky relative top-0 h-fit">

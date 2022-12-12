@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Error, Loader, VideoCard } from "../components";
 import { useGetTopVideosQuery } from "../redux/services/youtubeCore";
 
-const TopVideos = () => {
+const TopVideos = ({ setPage }) => {
+  useEffect(() => {
+    setPage("Video");
+  }, []);
   const { data, isFetching, error } = useGetTopVideosQuery();
   console.log(data?.videos);
+
   //   data?.map((video, i) => console.log(video));
   if (isFetching) return <Loader title="Loading videos..." />;
 

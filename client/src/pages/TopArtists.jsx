@@ -9,9 +9,9 @@ const TopArtists = ({ setPage }) => {
   }, []);
   const { data, isFetching, error } = useGetTopChartsQuery();
 
-  console.log(data);
-
   let workingData;
+
+  if (isFetching) return <Loader title="Loading Artists..." />;
 
   if (error?.status === 429) {
     workingData = dummyTopArtistJSON;
@@ -20,8 +20,6 @@ const TopArtists = ({ setPage }) => {
   } else {
     workingData = data;
   }
-
-  if (isFetching) return <Loader title="Loading Artists..." />;
 
   return (
     <div className="ml-5 flex flex-col">
