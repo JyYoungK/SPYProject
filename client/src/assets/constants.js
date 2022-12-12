@@ -1,5 +1,6 @@
 // -------------------------------- Music --------------------------------
-
+export const emptyMusicUrl =
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Eo_circle_grey_disc.svg/800px-Eo_circle_grey_disc.svg.png";
 export const genres = [
   { title: "Pop", value: "POP" },
   { title: "Hip-Hop", value: "HIP_HOP_RAP" },

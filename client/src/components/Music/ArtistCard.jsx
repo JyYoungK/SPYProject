@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { emptyMusicUrl } from "../../assets/constants";
 
 const ArtistCard = ({ track }) => {
   const navigate = useNavigate();
@@ -11,11 +12,13 @@ const ArtistCard = ({ track }) => {
       <div className="relative w-full h-56 group">
         <img
           alt="song_img"
-          src={track?.images?.coverart}
+          src={
+            track?.images?.coverart ? track?.images?.coverart : emptyMusicUrl
+          }
           className="w-full h-full rounded-lg"
         />
       </div>
-      <div className="mt-4 flex flex-col">
+      <div className="mt-1 flex flex-col">
         <p className="mt-4 font-semibold text-lg text-white truncate">
           {track?.subtitle}
         </p>
