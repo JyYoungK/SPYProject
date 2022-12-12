@@ -26,7 +26,7 @@ const videolinks = [
 ];
 
 const NavLinks = ({ handleClick }) => (
-  <div className="mt-2">
+  <div>
     <div className="flex flex-row justify-start items-center my-3 text-2xl font-medium text-green-500">
       <b className="text-3xl"> S </b> potify
     </div>
@@ -79,12 +79,12 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="md:flex hidden flex-col w-[180px] mt-5 py-5 px-4 bg-[#191624]">
-        <img src={logo} alt="logo" className="w-full h-12 object-contain" />
+      <div className="md:flex hidden flex-col w-[180px] pt-8  px-4 bg-[#191624]">
+        <img src={logo} alt="logo" className="w-full h-20 object-contain" />
         <NavLinks />
       </div>
 
-      {/* Mobile sidebar */}
+      {/* Mobile sidebar Burger Menu */}
       <div className="absolute md:hidden block mt-5 top-6 right-3">
         {!mobileMenuOpen ? (
           <HiOutlineMenu
@@ -100,7 +100,7 @@ const Sidebar = () => {
       </div>
 
       <div
-        className={`absolute top-0 h-screen w-1/3 bg-gradient-to-tl from-white/10 to-[#483D8B] backdrop-blur-lg z-10 p-6 md:hidden smooth-transition ${
+        className={`absolute top-0 h-screen w-2/3 bg-gradient-to-tl py-5 from-white/10 to-[#483D8B] backdrop-blur-lg z-10 p-6 md:hidden smooth-transition ${
           mobileMenuOpen ? "left-0" : "-left-full"
         }`}
       >
