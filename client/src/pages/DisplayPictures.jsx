@@ -27,21 +27,21 @@ const DisplayPictures = ({ setPage }) => {
   }
 
   return (
-    <div className="md:mx-auto ml-10 items-center flex flex-col ">
+    <div className="md:mx-auto items-center flex flex-col ">
       {error?.status === 429 ? (
-        <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">
+        <h2 className="font-bold text-xl text-white text-left mt-4 mb-10">
           Sorry, API request call has reached the max amount. Displaying random
           pictures instead.
         </h2>
       ) : null}
-      <div className="hidden sm:block sticky relative top-0">
+      <div className="hidden sm:block sticky top-0">
         {openModal && (
           <PictureDetails toggleModal={toggleModal} openPin={openPin} />
         )}
       </div>
 
-      <div className="flex w-full h-full justify-center">
-        <div className="h-full 3xl:max-w-7xl 3xl:columns-5 md:max-w-4xl md:columns-3 sm:max-w-xl sm:columns-2  ">
+      <div className="flex w-full h-full justify-center md:ml-2">
+        <div className="h-full md:columns-5 ">
           {pins.map((pin, i) => (
             <PictureCard
               key={i}

@@ -6,7 +6,7 @@ import { IoLocationSharp } from "react-icons/io5";
 
 const PictureDetails = ({ toggleModal, openPin }) => {
   return (
-    <div className="relative h-100 w-full flex sm:flex-row flex-col bg-white ">
+    <div className="relative h-100 w-full flex flex-row bg-white ">
       <div className="mb-8 w-full items-center ">
         <a href={openPin?.links.html} target="_blank">
           <img
@@ -32,7 +32,7 @@ const PictureDetails = ({ toggleModal, openPin }) => {
                       .replace("{h}", "200")
                   : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
               }
-              className="ml-5 mt-2 sm:w-24 w-14 sm:h-24 h-14 rounded-full object-cover border-2 shadow-xl shadow-black"
+              className="ml-5 mt-3 md:w-32 w-16 md:h-32 h-14 rounded-full object-cover border-2 shadow-xl shadow-black"
             />
             <div className="flex flex-col ml-5 mt-7">
               <a href={openPin?.user.links.html} target="_blank">
@@ -67,10 +67,10 @@ const PictureDetails = ({ toggleModal, openPin }) => {
             </div>
           </div>
         </div>
-        <div className="bg-orange-100 h-full ">
-          <div className="ml-5 mt-4 flex flex-row  w-full ">
+        <div className="bg-orange-100 h-full flex flex-col ">
+          <div className="ml-5 mt-4 flex flex-row w-full text-gray-600 sm:text-base md:text-lg">
             <div className="flex flex-col mx-5">
-              <div className="text-gray-600 sm:text-base md:text-md">Views</div>
+              <div>Views</div>
               <div className="sm:text-base md:text-xl">
                 {openPin?.views
                   ? parseInt(openPin?.views).toLocaleString()
@@ -78,7 +78,7 @@ const PictureDetails = ({ toggleModal, openPin }) => {
               </div>
             </div>
             <div className="flex flex-col mx-5">
-              <div className="text-gray-600 sm:text-base md:text-md">Likes</div>
+              <div>Likes</div>
               <div className="sm:text-base md:text-xl">
                 {openPin?.likes
                   ? parseInt(openPin?.likes).toLocaleString()
@@ -86,9 +86,7 @@ const PictureDetails = ({ toggleModal, openPin }) => {
               </div>
             </div>
             <div className="flex flex-col mx-5">
-              <div className="text-gray-600 sm:text-base md:text-md">
-                Downloads
-              </div>
+              <div>Downloads</div>
               <div className="sm:text-base md:text-xl">
                 {openPin?.downloads
                   ? parseInt(openPin?.downloads).toLocaleString()
@@ -96,32 +94,30 @@ const PictureDetails = ({ toggleModal, openPin }) => {
               </div>
             </div>
           </div>
-          <div className="mt-5 mb-2">
-            <div className="ml-9 mt-2 flex flex-row justify-between text-black sm:text-base md:text-lg">
-              <div className="flex flex-row">
-                <IoLocationSharp className="mr-2" />
-                {openPin?.location?.name
-                  ? openPin?.location.name.length > 12
-                    ? openPin?.location.name.split(",")[0]
-                    : openPin?.location.name
+          <div className="h-full mt-3 mb-2 flex flex-col justify-evenly text-black md:text-lg ">
+            <div className="ml-9 flex flex-row">
+              <IoLocationSharp className="mr-2 mt-1" />
+              {openPin?.location?.name
+                ? openPin?.location.name.length > 12
+                  ? openPin?.location.name.split(",")[0]
+                  : openPin?.location.name
+                : "Unknown"}
+            </div>
+            <div className="ml-9 flex flex-row">
+              <AiFillDatabase className="mr-2 mt-1" />
+              <div className="mr-11">
+                {openPin?.user?.updated_at
+                  ? openPin?.user.updated_at.slice(0, 10)
                   : "Unknown"}
-              </div>
-              <div className="flex flex-row">
-                <AiFillDatabase className="mr-2" />
-                <div className="mr-11">
-                  {openPin?.user?.updated_at
-                    ? openPin?.user.updated_at.slice(0, 10)
-                    : "Unknown"}
-                </div>
               </div>
             </div>
 
-            <div className="ml-9 mt-2 flex flex-row text-black sm:text-base md:text-lg">
-              <BsCameraFill className="mr-2" />
+            <div className="ml-9 flex flex-row ">
+              <BsCameraFill className="mr-2 mt-1" />
               {openPin?.exif?.name ? openPin?.exif?.name : "Unknown"}
             </div>
-            <div className="ml-9 mt-2 flex flex-row text-black sm:text-base md:text-lg">
-              <AiFillInstagram className="mr-2" />
+            <div className="ml-9 flex flex-row ">
+              <AiFillInstagram className="mr-2 mt-1" />
               {openPin?.user?.instagram_username
                 ? openPin?.user?.instagram_username
                 : "Unknown"}

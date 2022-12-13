@@ -85,7 +85,7 @@ const App = () => {
           handleSetTheme={handleSetTheme}
         />
 
-        <div className=" h-[calc(100vh-100px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
+        <div className=" h-[calc(100vh-60px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
           <div className="flex-1 h-fit pb-40">
             <Routes>
               <Route
@@ -150,10 +150,10 @@ const App = () => {
               <Route path="/channel/:id" element={<ChannelDetail />} />
             </Routes>
           </div>
-          <div className="animate-slideup xl:sticky relative top-0 h-fit">
+          {/* <div className="animate-slideup xl:sticky relative top-0 h-fit">
             {activeSong?.title && <MusicPlayer />}
             <TopPlay />
-          </div>
+          </div> */}
         </div>
       </div>
 
