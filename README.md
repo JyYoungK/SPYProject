@@ -27,7 +27,7 @@ Demo URL: https://spyproject.netlify.app/
 ### Generate Full Working Website
 
 - Create `.env.local` file inside client
-- Fill in from following
-- VITE_RAPID_API_KEY = https://rapidapi.com/tipsters/api/shazam-core/ <-- Go to this link and Sign Up, then you should see X-RapidAPI-Key inside Code Snippets
-- VITE_YOUTUBE_RAPID_API_KEY = https://rapidapi.com/ytdlfree/api/youtube-v31/ <-- Go to this link and Sign Up, then you should see X-RapidAPI-Key inside Code Snippets
-- VITE_UNSPLASH_ACCESS_KEY = https://unsplash.com/@developer/ <-- Go to this link Sign Up, then create a project and they will give you API Key
+- Fill in the followings
+- VITE_RAPID_API_KEY = https://rapidapi.com/tipsters/api/shazam-core/ <-- Go to this link and Sign Up, then you should see X-RapidAPI-Key inside Code Snippets. Copy it without the ""
+- VITE_YOUTUBE_RAPID_API_KEY = https://rapidapi.com/ytdlfree/api/youtube-v31/ <-- Go to this link and Sign Up, then you should see X-RapidAPI-Key inside Code Snippets. Copy it without the ""
+- VITE_UNSPLASH_ACCESS_KEY = https://unsplash.com/@developer/ <-- Go to this link Sign Up, then create a project and they will give you API Key. Copy it without the ""
