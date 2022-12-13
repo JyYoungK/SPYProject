@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { Navbar, Sidebar, MusicPlayer, TopPlay } from "./components";
@@ -30,6 +30,27 @@ const App = () => {
   const winter_theme = "from-theme_black ";
   const light_theme = "to-theme_white";
   const dark_theme = "to-theme_black";
+
+  useEffect(() => {
+    const seasonData = window.localStorage.getItem("season");
+    const themeData = window.localStorage.getItem("theme");
+    if (seasonData !== null) {
+      setCurrentSeason(JSON.parse(seasonData));
+    }
+    if (themeData !== null) {
+      setCurrentTheme(JSON.parse(themeData));
+    }
+    console.log(seasonData);
+    console.log(themeData);
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("season", JSON.stringify(currentSeason));
+  }, [currentSeason]);
+
+  useEffect(() => {
+    window.localStorage.setItem("theme", JSON.stringify(currentTheme));
+  }, [currentTheme]);
 
   const handleSetPage = (newPage) => {
     setPage(newPage);

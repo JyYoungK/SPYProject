@@ -7,13 +7,13 @@ import App from "./App";
 import store, { persistor } from "./redux/store";
 import { PersistGate } from "redux-persist/es/integration/react";
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  //<React.StrictMode> Makes the React to render twice
+  <Router>
     <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <Router>
-          <App />
-        </Router>
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
       </PersistGate>
     </Provider>
-  </React.StrictMode>
+  </Router>
+  //</React.StrictMode>
 );
