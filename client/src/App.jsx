@@ -101,6 +101,7 @@ const App = () => {
                 element={<DisplayPictures setPage={handleSetPage} />}
               />
               {/* --------------------------------------------------- */}
+              <Route path="/search/:searchTerm" element={<SearchVideo />} />
               <Route
                 path="/top-videos"
                 element={<TopVideo setPage={handleSetPage} />}
@@ -119,7 +120,6 @@ const App = () => {
               />
               <Route path="/video/:id" element={<VideoDetail />} />
               <Route path="/channel/:id" element={<ChannelDetail />} />
-              <Route path="/search/:searchTerm" element={<SearchVideo />} />
             </Routes>
           </div>
           <div className=" xl:sticky relative top-0 h-fit">
