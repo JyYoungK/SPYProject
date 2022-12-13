@@ -39,7 +39,7 @@ const Navbar = ({
           <NoSearchbar />
         )}
       </div>
-      <div className="pr-3 w-1/2 flex flex-row justify-end">
+      <div className="pr-3 w-1/2 flex flex-row md:justify-end sm:justify-start">
         {currentSeason == 1 && (
           <img
             src={spring}

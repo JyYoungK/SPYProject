@@ -24,54 +24,65 @@ const videolinks = [
   { name: "Gaming", to: "/gaming-videos", icon: IoGameControllerOutline },
 ];
 
-const NavLinks = ({ handleClick }) => (
-  <div>
-    <div className="flex flex-row justify-start items-center text-2xl font-medium text-green-500">
-      <b className="text-3xl"> S </b> potify
+const NavLinks = ({ handleClick }) => {
+  return (
+    <div>
+      <div className="flex flex-row justify-start items-center text-2xl font-medium text-green-500">
+        <b className="text-3xl"> S </b> potify
+      </div>
+      {musiclinks.map((item) => (
+        <NavLink
+          style={({ isActive }) => ({
+            background: isActive ? "#50C878" : "",
+          })}
+          key={item.name}
+          to={item.to}
+          className={`flex flex-row justify-start items-center my-8 text-md font-black text-white  `}
+          onClick={() => handleClick && handleClick()} //If handleClick is passed, call it
+        >
+          <item.icon className="w-6 h-6 mr-2 " />
+          {item.name}
+        </NavLink>
+      ))}
+      <Divider className="bg-white" />
+      <div className="flex flex-row justify-start items-center my-3 text-2xl font-medium text-pink-500">
+        <b className="text-3xl"> P </b> interest
+      </div>
+      {picturelinks.map((item) => (
+        <NavLink
+          style={({ isActive }) => ({
+            background: isActive ? "#C64B8C" : "",
+          })}
+          key={item.name}
+          to={item.to}
+          className={`flex flex-row justify-start items-center my-8 text-md font-black text-white  `}
+          onClick={() => handleClick && handleClick()} //If handleClick is passed, call it
+        >
+          <item.icon className="w-6 h-6 mr-2 " />
+          {item.name}
+        </NavLink>
+      ))}
+      <Divider className="bg-white" />
+      <div className="flex flex-row justify-start items-center my-3 text-2xl font-medium text-red-500">
+        <b className="text-3xl"> Y </b> outube
+      </div>
+      {videolinks.map((item) => (
+        <NavLink
+          style={({ isActive }) => ({
+            background: isActive ? "#FE3939" : "",
+          })}
+          key={item.name}
+          to={item.to}
+          className={`flex flex-row justify-start items-center my-8 text-md font-black text-white  `}
+          onClick={() => handleClick && handleClick()} //If handleClick is passed, call it
+        >
+          <item.icon className="w-6 h-6 mr-2 " />
+          {item.name}
+        </NavLink>
+      ))}
     </div>
-    {musiclinks.map((item) => (
-      <NavLink
-        key={item.name}
-        to={item.to}
-        className="flex flex-row justify-start items-center my-8 text-sm font-medium text-gray-400 hover:text-cyan-400 "
-        onClick={() => handleClick && handleClick()} //If handleClick is passed, call it
-      >
-        <item.icon className="w-6 h-6 mr-2 " />
-        {item.name}
-      </NavLink>
-    ))}
-    <Divider className="bg-white" />
-    <div className="flex flex-row justify-start items-center my-3 text-2xl font-medium text-pink-500">
-      <b className="text-3xl"> P </b> interest
-    </div>
-    {picturelinks.map((item) => (
-      <NavLink
-        key={item.name}
-        to={item.to}
-        className="flex flex-row justify-start items-center my-8 text-sm font-medium text-gray-400 hover:text-cyan-400 "
-        onClick={() => handleClick && handleClick()} //If handleClick is passed, call it
-      >
-        <item.icon className="w-6 h-6 mr-2 " />
-        {item.name}
-      </NavLink>
-    ))}
-    <Divider className="bg-white" />
-    <div className="flex flex-row justify-start items-center my-3 text-2xl font-medium text-red-500">
-      <b className="text-3xl"> Y </b> outube
-    </div>
-    {videolinks.map((item) => (
-      <NavLink
-        key={item.name}
-        to={item.to}
-        className="flex flex-row justify-start items-center my-8 text-sm font-medium text-gray-400 hover:text-cyan-400 "
-        onClick={() => handleClick && handleClick()} //If handleClick is passed, call it
-      >
-        <item.icon className="w-6 h-6 mr-2 " />
-        {item.name}
-      </NavLink>
-    ))}
-  </div>
-);
+  );
+};
 
 const Sidebar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -86,7 +97,7 @@ const Sidebar = () => {
       </div>
 
       {/* Mobile sidebar Burger Menu */}
-      <div className="absolute md:hidden block mt-4 top-6 right-3">
+      <div className="absolute md:hidden block mt-2 top-6 right-3">
         {!mobileMenuOpen ? (
           <HiOutlineMenu
             className="w-6 h-6 mr-2 text-white"

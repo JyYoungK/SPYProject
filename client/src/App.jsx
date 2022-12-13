@@ -64,7 +64,7 @@ const App = () => {
 
   return (
     <div className="relative flex">
-      <Sidebar />
+      <Sidebar currentSeason={currentSeason} />
 
       <div
         className={`flex-1 flex flex-col bg-gradient-to-br ${
