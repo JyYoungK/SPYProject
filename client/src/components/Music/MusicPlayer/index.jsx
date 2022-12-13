@@ -57,9 +57,7 @@ const MusicPlayer = () => {
   };
 
   return (
-    <div className="px-8 xl:ml-5 ml-0 xl:mb-0 flex-1 xl:max-w-[340px]  bg-black mt-1 border-t-4 border-t-red-600 border-l-4 border-l-red-600 border-r-4 border-r-red-600">
-      {/* <div className="px-8 xl:ml-5 ml-0 xl:mb-0 flex-1 xl:max-w-[340px] max-w-full flex flex-col items-center justify-between bg-black mt-1 border-t-4 border-t-red-600 border-l-4 border-l-red-600 border-r-4 border-r-red-600"> */}
-
+    <div className="px-8 xl:ml-5 ml-0 xl:mb-0 flex-1 xl:max-w-[340px]  bg-black  border-t-4 border-t-red-600 border-l-4 border-l-red-600 border-r-4 border-r-red-600">
       <div className="flex-col items-center justify-center">
         <Track
           isPlaying={isPlaying}

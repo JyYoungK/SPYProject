@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { Navbar, Sidebar, MusicPlayer, TopPlay } from "./components";
-
 import {
   TopCharts,
   SearchMusic,
@@ -23,16 +22,49 @@ import {
 const App = () => {
   const { activeSong } = useSelector((state) => state.player);
   const [page, setPage] = useState("");
+  const [currentSeason, setCurrentSeason] = useState(1);
+  const [currentTheme, setCurrentTheme] = useState(1);
+  const spring_theme = "from-theme_green ";
+  const summer_theme = "from-theme_blue ";
+  const autumn_theme = "from-theme_red ";
+  const winter_theme = "from-theme_black ";
+  const light_theme = "to-theme_white";
+  const dark_theme = "to-theme_black";
 
   const handleSetPage = (newPage) => {
     setPage(newPage);
   };
 
+  const handleSetSeason = (newSeason) => {
+    setCurrentSeason(newSeason);
+  };
+
+  const handleSetTheme = (newTheme) => {
+    setCurrentTheme(newTheme);
+  };
+
   return (
     <div className="relative flex">
       <Sidebar />
-      <div className="flex-1 flex flex-col bg-gradient-to-br from-black to-[#121286]">
-        <Navbar page={page} />
+
+      <div
+        className={`flex-1 flex flex-col bg-gradient-to-br ${
+          currentSeason === 1
+            ? spring_theme
+            : currentSeason === 2
+            ? summer_theme
+            : currentSeason === 3
+            ? autumn_theme
+            : winter_theme
+        }${currentTheme === 1 ? dark_theme : light_theme}`}
+      >
+        <Navbar
+          page={page}
+          currentSeason={currentSeason}
+          handleSetSeason={handleSetSeason}
+          currentTheme={currentTheme}
+          handleSetTheme={handleSetTheme}
+        />
 
         <div className=" h-[calc(100vh-100px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
           <div className="flex-1 h-fit pb-40">

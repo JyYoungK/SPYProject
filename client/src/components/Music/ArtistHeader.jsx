@@ -10,7 +10,7 @@ const ArtistHeader = ({ artistId, artistData }) => {
     .replaceAll("</I>", "");
   return (
     <div className="relative w-full flex flex-col">
-      <div className="mb-5 inset-0 flex items-center">
+      <div className="my-5 inset-0 flex items-center">
         <img
           alt="profile"
           src={
