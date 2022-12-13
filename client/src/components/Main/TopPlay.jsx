@@ -15,10 +15,6 @@ const TopPlay = () => {
   const { data, error } = useGetTopChartsQuery();
   const divRef = useRef(null);
 
-  useEffect(() => {
-    divRef.current.scrollIntoView({ behavior: "smooth" });
-  });
-
   let workingData;
 
   if (error?.status === 429) {

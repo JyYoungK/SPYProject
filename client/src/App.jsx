@@ -63,7 +63,7 @@ const App = () => {
   };
 
   return (
-    <div className="relative flex">
+    <div className="relative flex overflow-hidden">
       <Sidebar currentSeason={currentSeason} />
 
       <div
@@ -150,7 +150,7 @@ const App = () => {
               <Route path="/channel/:id" element={<ChannelDetail />} />
             </Routes>
           </div>
-          <div className=" xl:sticky relative top-0 h-fit">
+          <div className="animate-slideup xl:sticky relative top-0 h-fit">
             {activeSong?.title && <MusicPlayer />}
             <TopPlay />
           </div>

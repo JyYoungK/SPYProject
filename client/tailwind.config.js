@@ -7,9 +7,13 @@ module.exports = {
       colors: {
         theme_white: "#F5F5F5",
         theme_black: "#191624",
+        theme_yellow: "#FFFF00",
         theme_green: "#0B6623",
         theme_blue: "#14bde3",
         theme_red: "#FF0000",
+        dark_theme_green: "#023020",
+        dark_theme_blue: "720b98",
+        dark_theme_red: "#FF0000",
         theme_orange: "#FFA500",
       },
       animation: {

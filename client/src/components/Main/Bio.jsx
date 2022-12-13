@@ -8,14 +8,14 @@ const Bio = ({ setPage, currentSeason, currentTheme }) => {
 
   const spring_theme = "text-theme_green ";
   const summer_theme = "text-theme_blue ";
-  const autumn_theme = "text-theme_red ";
+  const autumn_theme = "text-theme_orange ";
   const winter_theme = "text-theme_black ";
   const light_theme = "text-theme_black";
   const dark_theme = "text-theme_white";
 
   return (
     <div className="ml-5">
-      <div className="mt-5 flex flex-row overflow-hidden justify-center items-center h-1/2  relative ">
+      <div className="mt-5 flex text-cyan-blue-100 flex-row overflow-hidden justify-center items-center h-1/2 relative animate-slidedown ">
         <img
           className="object-cover"
           src={Me}
@@ -34,7 +34,7 @@ const Bio = ({ setPage, currentSeason, currentTheme }) => {
                 : winter_theme
             }`}
           >
-            Hi, I'm Junyoung
+            Hi, I'm Junyoung (Johnny)
           </h1>
           <p className="pt-3 text-xl text-gray-500 indent-3">
             I am from Toronto, Canada and I have two years of experience as a
@@ -56,7 +56,19 @@ const Bio = ({ setPage, currentSeason, currentTheme }) => {
       <div className=" dark:bg-slate-900">
         <div className="container mx-auto py-40 flex flex-col-reverse lg:flex-row items-center gap-20">
           <div className="my-auto flex flex-col gap-3">
-            <h1 className="text-indigo-600 font-bold">Skill Set</h1>
+            <h1
+              className={`${
+                currentSeason === 1
+                  ? "text-green-400"
+                  : currentSeason === 2
+                  ? "text-yellow-200"
+                  : currentSeason === 3
+                  ? "text-orange-400"
+                  : "text-indigo-600"
+              } font-bold`}
+            >
+              Skill Set
+            </h1>
             <p
               className={`${
                 currentTheme === 1 ? dark_theme : light_theme
@@ -74,7 +86,17 @@ const Bio = ({ setPage, currentSeason, currentTheme }) => {
               React (JS/TS)
             </h2>
             <div className="w-full bg-gray-200 h-1.5 rounded-md">
-              <div className="w-full bg-indigo-600 h-1.5 rounded-md"></div>
+              <div
+                className={`w-full ${
+                  currentSeason === 1
+                    ? "bg-green-400"
+                    : currentSeason === 2
+                    ? "bg-yellow-200"
+                    : currentSeason === 3
+                    ? "bg-orange-400"
+                    : "bg-indigo-600"
+                } h-1.5 rounded-md`}
+              ></div>
             </div>
 
             <h2
@@ -85,7 +107,17 @@ const Bio = ({ setPage, currentSeason, currentTheme }) => {
               CSS (Tailwind)
             </h2>
             <div className="w-full bg-gray-200 h-1.5 rounded-md">
-              <div className="w-5/6 bg-indigo-600 h-1.5 rounded-md"></div>
+              <div
+                className={`w-5/6 ${
+                  currentSeason === 1
+                    ? "bg-green-400"
+                    : currentSeason === 2
+                    ? "bg-yellow-200"
+                    : currentSeason === 3
+                    ? "bg-orange-400"
+                    : "bg-indigo-600"
+                } h-1.5 rounded-md`}
+              ></div>{" "}
             </div>
             <h2
               className={`${
@@ -95,7 +127,17 @@ const Bio = ({ setPage, currentSeason, currentTheme }) => {
               NodeJS, NextJS
             </h2>
             <div className="w-full bg-gray-200 h-1.5 rounded-md">
-              <div className="w-4/6 bg-indigo-600 h-1.5 rounded-md"></div>
+              <div
+                className={`w-4/6 ${
+                  currentSeason === 1
+                    ? "bg-green-400"
+                    : currentSeason === 2
+                    ? "bg-yellow-200"
+                    : currentSeason === 3
+                    ? "bg-orange-400"
+                    : "bg-indigo-600"
+                } h-1.5 rounded-md`}
+              ></div>{" "}
             </div>
           </div>
         </div>

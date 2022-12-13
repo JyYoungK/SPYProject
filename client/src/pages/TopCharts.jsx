@@ -6,7 +6,7 @@ import { useGetSongsByGenreQuery } from "../utils/redux/services/shazamCore";
 import { genres } from "../assets/constants";
 import dummyDiscoverJSON from "../assets/dummyDiscoverData.json"; //Read data from local json file
 
-const Discover = ({ setPage }) => {
+const TopCharts = ({ setPage }) => {
   useEffect(() => {
     setPage("Music");
   }, []);
@@ -76,4 +76,4 @@ const Discover = ({ setPage }) => {
   );
 };
 
-export default Discover;
+export default TopCharts;
