@@ -41,7 +41,7 @@ const SearchPicture = ({ setPage }) => {
           Showing results for <span className="font-black">{searchTerm}</span>
         </h2>
       )}
-      <div className="sticky relative top-0">
+      <div className="hidden sm:block sticky relative top-0">
         {openModal && (
           <PictureDetails toggleModal={toggleModal} openPin={openPin} />
         )}
