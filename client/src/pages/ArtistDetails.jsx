@@ -6,8 +6,7 @@ import {
   useGetArtistDetailsQuery,
   useGetSongsBySearchQuery,
 } from "../utils/redux/services/shazamCore";
-import dummyArtistDetailJSON from "../assets/dummyArtistDetail.json"; //Read data from local json file
-import dummyArtistDataJSON from "../assets/dummyArtistData.json"; //Read data from local json file
+import { dummyArtistDetail, dummyArtistData } from "../assets"; //Read data from local json file
 
 const ArtistDetails = ({ setPage }) => {
   useEffect(() => {
@@ -32,8 +31,8 @@ const ArtistDetails = ({ setPage }) => {
   let songs;
 
   if (error?.status === 429) {
-    working_aristData = dummyArtistDataJSON;
-    songs = dummyArtistDetailJSON.tracks.hits.map((song) => song.track);
+    working_aristData = dummyArtistData;
+    songs = dummyArtistDetail.tracks.hits.map((song) => song.track);
   } else if (error) {
     return <Error />;
   } else {

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Error, Loader, SongCard } from "../components";
 import { useGetSongsBySearchQuery } from "../utils/redux/services/shazamCore";
-import dummyArtistDetailJSON from "../assets/dummyArtistDetail.json"; //Read data from local json file
+import { dummyArtistDetail } from "../assets"; //Read data from local json file
 
 const SearchMusic = ({ setPage }) => {
   useEffect(() => {
@@ -18,7 +18,7 @@ const SearchMusic = ({ setPage }) => {
   let songs;
 
   if (error?.status === 429) {
-    songs = dummyArtistDetailJSON.tracks.hits.map((song) => song.track);
+    songs = dummyArtistDetail.tracks.hits.map((song) => song.track);
   } else if (error) {
     return <Error />;
   } else {

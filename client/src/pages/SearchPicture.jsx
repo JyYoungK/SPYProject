@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Error, Loader, PictureCard } from "../components";
 import { PictureDetails } from "./";
 import { useGetPicturesBySearchQuery } from "../utils/redux/services/unsplashCore";
-import dummyPictureJSON from "../assets/dummyPictureData.json"; //Read data from local json file
+import { dummyPictureData } from "../assets"; //Read data from local json file
 
 const SearchPicture = ({ setPage }) => {
   useEffect(() => {
@@ -22,7 +22,7 @@ const SearchPicture = ({ setPage }) => {
   let pins;
 
   if (error?.status === 429) {
-    pins = dummyPictureJSON.results;
+    pins = dummyPictureData.results;
   } else if (error) {
     return <Error />;
   } else {

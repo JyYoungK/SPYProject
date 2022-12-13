@@ -7,8 +7,7 @@ import {
   useGetSongDetailsQuery,
   useGetSongRelatedQuery,
 } from "../utils/redux/services/shazamCore";
-import dummySongDetailJSON from "../assets/dummySongDetail.json"; //Read data from local json file
-import dummyRelatedSongDataJSON from "../assets/dummyRelatedSongData.json"; //Read data from local json file
+import { dummySongDetail, dummyRelatedSongData } from "../assets"; //Read data from local json file
 
 const SongDetails = ({ setPage }) => {
   useEffect(() => {
@@ -32,8 +31,8 @@ const SongDetails = ({ setPage }) => {
   let working_relatedSongs;
 
   if (error?.status === 429) {
-    working_songData = dummySongDetailJSON;
-    working_relatedSongs = dummyRelatedSongDataJSON;
+    working_songData = dummySongDetail;
+    working_relatedSongs = dummyRelatedSongData;
   } else if (error) {
     return <Error />;
   } else {

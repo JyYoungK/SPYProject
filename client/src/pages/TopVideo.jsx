@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 import { Videos } from "../components";
-import dummyVideoData from "../assets/dummyVideoData.json";
+import { dummyVideoData } from "../assets";
 const TopVideo = ({ setPage }) => {
   const [videos, setVideos] = useState(null);
   let error = false;

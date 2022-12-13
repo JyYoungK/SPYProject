@@ -4,7 +4,7 @@ import { Error, Loader, SongCard } from "../components";
 import { selectGenreListId } from "../utils/redux/features/playerSlice";
 import { useGetSongsByGenreQuery } from "../utils/redux/services/shazamCore";
 import { genres } from "../assets/constants";
-import dummyDiscoverJSON from "../assets/dummyDiscoverData.json"; //Read data from local json file
+import { dummyDiscoverData } from "../assets"; //Read data from local json file
 
 const TopCharts = ({ setPage }) => {
   useEffect(() => {
@@ -22,7 +22,7 @@ const TopCharts = ({ setPage }) => {
   if (isFetching) return <Loader title="Loading Songs..." />;
 
   if (error?.status === 429) {
-    workingData = dummyDiscoverJSON;
+    workingData = dummyDiscoverData;
   } else if (error) {
     return <Error />;
   } else {

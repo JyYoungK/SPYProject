@@ -6,7 +6,7 @@ import { Videos, Loader } from "../components";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
-import dummyVideoData from "../assets/dummyVideoData.json";
+import { dummyVideoData } from "../assets";
 
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState(null);

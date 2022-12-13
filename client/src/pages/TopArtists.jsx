@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { ArtistCard, Error, Loader } from "../components";
 import { useGetTopChartsQuery } from "../utils/redux/services/shazamCore";
-import dummyTopArtistJSON from "../assets/dummyTopArtistData.json"; //Read data from local json file
+import { dummyTopArtistData } from "../assets"; //Read data from local json file
 
 const TopArtists = ({ setPage }) => {
   useEffect(() => {
@@ -14,7 +14,7 @@ const TopArtists = ({ setPage }) => {
   if (isFetching) return <Loader title="Loading Artists..." />;
 
   if (error?.status === 429) {
-    workingData = dummyTopArtistJSON;
+    workingData = dummyTopArtistData;
   } else if (error) {
     return <Error />;
   } else {

@@ -7,7 +7,7 @@ import {
 } from "../../utils/redux/features/playerSlice";
 import TopChartCard from "../Music/TopChartCard";
 import { useGetTopChartsQuery } from "../../utils/redux/services/shazamCore";
-import dummyTopArtistJSON from "../../assets/dummyTopArtistData.json"; //Read data from local json file
+import { dummyTopArtistData } from "../../assets"; //Read data from local json file
 
 const TopPlay = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const TopPlay = () => {
   let workingData;
 
   if (error?.status === 429) {
-    workingData = dummyTopArtistJSON?.slice(0, 5);
+    workingData = dummyTopArtistData?.slice(0, 5);
   } else {
     workingData = data?.slice(0, 5); // Only show top 5 songs
   }
