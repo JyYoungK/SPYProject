@@ -13,16 +13,16 @@ const VideoDetail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetchFromAPI(
-      `videos?part=contentDetails%2Csnippet%2Cstatistics&id=${id}`
-    ).then((data) => setVideoDetail(data.items[0]));
+    fetchFromAPI(`videos?part=snippet,statistics&id=${id}`).then((data) =>
+      setVideoDetail(data.items[0])
+    );
 
     fetchFromAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`).then(
       (data) => setVideos(data.items)
     );
   }, [id]);
 
-  if (!videoDetail?.snippet) return <Loader title={`Searching videos...`} />;
+  if (!videoDetail?.snippet) return <Loader title={`Loading video...`} />;
 
   const {
     snippet: { title, channelId, channelTitle },
