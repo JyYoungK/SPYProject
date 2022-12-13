@@ -28,7 +28,7 @@ const NavLinks = ({ handleClick }) => {
   return (
     <div>
       <div className="flex flex-row justify-start items-center text-2xl font-medium text-green-500">
-        <b className="text-3xl"> S </b> potify
+        <b className="md:text-3xl"> S </b> potify
       </div>
       {musiclinks.map((item) => (
         <NavLink
@@ -37,7 +37,7 @@ const NavLinks = ({ handleClick }) => {
           })}
           key={item.name}
           to={item.to}
-          className={`flex flex-row justify-start items-center my-8 text-md font-black text-white  `}
+          className={`flex flex-row justify-start items-center my-8 text-md md:font-black text-white  `}
           onClick={() => handleClick && handleClick()} //If handleClick is passed, call it
         >
           <item.icon className="w-6 h-6 mr-2 " />
@@ -46,7 +46,7 @@ const NavLinks = ({ handleClick }) => {
       ))}
       <Divider className="bg-white" />
       <div className="flex flex-row justify-start items-center my-3 text-2xl font-medium text-pink-500">
-        <b className="text-3xl"> P </b> interest
+        <b className="md:text-3xl"> P </b> interest
       </div>
       {picturelinks.map((item) => (
         <NavLink
@@ -55,7 +55,7 @@ const NavLinks = ({ handleClick }) => {
           })}
           key={item.name}
           to={item.to}
-          className={`flex flex-row justify-start items-center my-8 text-md font-black text-white  `}
+          className={`flex flex-row justify-start items-center my-8 text-md md:font-black text-white  `}
           onClick={() => handleClick && handleClick()} //If handleClick is passed, call it
         >
           <item.icon className="w-6 h-6 mr-2 " />
@@ -64,7 +64,7 @@ const NavLinks = ({ handleClick }) => {
       ))}
       <Divider className="bg-white" />
       <div className="flex flex-row justify-start items-center my-3 text-2xl font-medium text-red-500">
-        <b className="text-3xl"> Y </b> outube
+        <b className="md:text-3xl"> Y </b> outube
       </div>
       {videolinks.map((item) => (
         <NavLink
@@ -73,7 +73,7 @@ const NavLinks = ({ handleClick }) => {
           })}
           key={item.name}
           to={item.to}
-          className={`flex flex-row justify-start items-center my-8 text-md font-black text-white  `}
+          className={`flex flex-row justify-start items-center my-8 text-md md:font-black text-white  `}
           onClick={() => handleClick && handleClick()} //If handleClick is passed, call it
         >
           <item.icon className="w-6 h-6 mr-2 " />
@@ -97,7 +97,7 @@ const Sidebar = () => {
       </div>
 
       {/* Mobile sidebar Burger Menu */}
-      <div className="absolute md:hidden block mt-2 top-6 right-3">
+      <div className="absolute md:hidden block mt-2 top-3 right-3">
         {!mobileMenuOpen ? (
           <HiOutlineMenu
             className="w-6 h-6 mr-2 text-white"
@@ -112,7 +112,7 @@ const Sidebar = () => {
       </div>
 
       <div
-        className={`absolute top-0 h-full w-2/3 bg-gradient-to-tl py-5 from-white/10 to-[#483D8B] backdrop-blur-lg z-10 p-6 md:hidden smooth-transition ${
+        className={`absolute top-0 h-full w-5/8 bg-gradient-to-tl from-white/10 to-[#483D8B] backdrop-blur-lg z-10 p-6 md:hidden smooth-transition ${
           mobileMenuOpen ? "left-0" : "-left-full"
         }`}
       >

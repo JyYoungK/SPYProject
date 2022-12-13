@@ -21,7 +21,7 @@ const PictureSearchbar = () => {
           name="search-field"
           autoComplete="off"
           id="search-field"
-          className="flex-1 bg-transparent border-none placeholder-pink-600 outline-none text-base text-pink-600 p-4"
+          className="flex-1 bg-transparent border-none placeholder-pink-600 outline-none text-base text-pink-600 md:p-4 p-2"
           placeholder="Search on Pinterest"
           type="search"
           value={searchPicture}

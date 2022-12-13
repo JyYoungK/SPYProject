@@ -28,7 +28,7 @@ const Navbar = ({
 
   return (
     <div className="flex flex-row items-center body-font text-white bg-black">
-      <div className="w-1/2 ">
+      <div className="md:w-1/2 w-2/3">
         {page === "Music" ? (
           <MusicSearchbar />
         ) : page === "Picture" ? (
@@ -39,12 +39,12 @@ const Navbar = ({
           <NoSearchbar />
         )}
       </div>
-      <div className="pr-3 w-1/2 flex flex-row md:justify-end sm:justify-start">
+      <div className="md:pr-3 pr-0 w-1/2 flex flex-row md:justify-end justify-start">
         {currentSeason == 1 && (
           <img
             src={spring}
             alt="Spring"
-            className=" w-10 h-10 object-contain"
+            className="md:w-10 md:h-10 w-8 h-8 object-contain"
             onClick={handleSeasonClick}
           />
         )}
@@ -52,7 +52,7 @@ const Navbar = ({
           <img
             src={summer}
             alt="Summer"
-            className="w-10 h-10 object-contain"
+            className="md:w-10 md:h-10 w-8 h-8 object-contain"
             onClick={handleSeasonClick}
           />
         )}
@@ -60,7 +60,7 @@ const Navbar = ({
           <img
             src={autumn}
             alt="Autumn"
-            className="w-10 h-10 object-contain"
+            className="md:w-10 md:h-10 w-8 h-8  object-contain"
             onClick={handleSeasonClick}
           />
         )}
@@ -68,21 +68,21 @@ const Navbar = ({
           <img
             src={winter}
             alt="Winter"
-            className="w-10 h-10 object-contain"
+            className="md:w-10 md:h-10 w-8 h-8  object-contain"
             onClick={handleSeasonClick}
           />
         )}
         {currentTheme == 1 && (
           <MdDarkMode
             alt="Day"
-            className="w-10 h-10 object-contain "
+            className="md:w-10 md:h-10 w-8 h-8 object-contain "
             onClick={handleThemeClick}
           />
         )}
         {currentTheme == 2 && (
           <MdOutlineDarkMode
             alt="Night"
-            className="w-10 h-10 object-contain"
+            className="md:w-10 md:h-10 w-8 h-8 object-contain"
             onClick={handleThemeClick}
           />
         )}

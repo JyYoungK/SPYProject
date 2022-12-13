@@ -6,7 +6,7 @@ import { IoLocationSharp } from "react-icons/io5";
 
 const PictureDetails = ({ toggleModal, openPin }) => {
   return (
-    <div className="relative h-100 w-full flex flex-row bg-white ">
+    <div className="relative h-100 w-full flex sm:flex-row flex-col bg-white ">
       <div className="mb-8 w-full items-center ">
         <a href={openPin?.links.html} target="_blank">
           <img

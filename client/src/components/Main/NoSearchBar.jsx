@@ -13,7 +13,7 @@ const NoSearchbar = () => {
           name="search-field"
           autoComplete="off"
           id="search-field"
-          className="flex-1 bg-transparent border-none placeholder-black outline-none text-base text-black p-4"
+          className="flex-1 bg-transparent border-none placeholder-black outline-none text-base text-black md:p-4 p-2"
           placeholder="Nothing to search here"
           disabled="true"
         />

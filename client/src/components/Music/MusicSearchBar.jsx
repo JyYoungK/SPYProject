@@ -21,7 +21,7 @@ const MusicSearchbar = () => {
           name="search-field"
           autoComplete="off"
           id="search-field"
-          className="flex-1 bg-transparent border-none placeholder-green-600 outline-none text-base text-green-600 p-4"
+          className="flex-1 bg-transparent border-none placeholder-green-600 outline-none text-base text-green-600 md:p-4 p-2"
           placeholder="Search on Spotify"
           type="search"
           value={searchMusic}

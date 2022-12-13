@@ -14,15 +14,15 @@ const Bio = ({ setPage, currentSeason, currentTheme }) => {
   const dark_theme = "text-theme_white";
 
   return (
-    <div className="ml-5">
-      <div className="mt-5 flex text-cyan-blue-100 flex-row overflow-hidden justify-center items-center h-1/2 relative animate-slidedown ">
+    <div className="mx-auto">
+      <div className="h-1/2 w-full flex justify-center items-center sm:flex-row flex-col relative animate-slidedown ">
         <img
           className="object-cover"
           src={Me}
           alt=""
           style={{ height: "500px" }}
         />
-        <div className="ml-5 hidden lg:flex flex-col  rounded-md shadow-lg  bg-white p-6 w-7/12">
+        <div className="lg:flex flex-col rounded-md shadow-lg  bg-white p-6 md:w-7/12 w-11/12 md:ml-5 mt-5">
           <h1
             className={`text-4xl font-bold  ${
               currentSeason === 1

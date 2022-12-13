@@ -21,7 +21,7 @@ const VideoSearchbar = () => {
           name="search-field"
           autoComplete="off"
           id="search-field"
-          className="flex-1 bg-transparent border-none placeholder-red-600 outline-none text-base text-red-600 p-4"
+          className="flex-1 bg-transparent border-none placeholder-red-600 outline-none text-base text-red-600 md:p-4 p-2"
           placeholder="Search on Youtube"
           type="search"
           value={searchVideo}
