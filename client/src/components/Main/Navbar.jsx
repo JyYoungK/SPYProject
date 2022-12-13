@@ -44,7 +44,7 @@ const Navbar = ({
           <img
             src={spring}
             alt="Spring"
-            className="md:w-10 md:h-10 w-8 h-8 object-contain"
+            className="pr-1 md:w-10 md:h-10 w-8 h-8 object-contain"
             onClick={handleSeasonClick}
           />
         )}
@@ -52,7 +52,7 @@ const Navbar = ({
           <img
             src={summer}
             alt="Summer"
-            className="md:w-10 md:h-10 w-8 h-8 object-contain"
+            className="pr-1 md:w-10 md:h-10 w-8 h-8 object-contain"
             onClick={handleSeasonClick}
           />
         )}
@@ -60,7 +60,7 @@ const Navbar = ({
           <img
             src={autumn}
             alt="Autumn"
-            className="md:w-10 md:h-10 w-8 h-8  object-contain"
+            className="pr-1 md:w-10 md:h-10 w-8 h-8  object-contain"
             onClick={handleSeasonClick}
           />
         )}
@@ -68,21 +68,21 @@ const Navbar = ({
           <img
             src={winter}
             alt="Winter"
-            className="md:w-10 md:h-10 w-8 h-8  object-contain"
+            className="pr-1 md:w-10 md:h-10 w-8 h-8  object-contain"
             onClick={handleSeasonClick}
           />
         )}
         {currentTheme == 1 && (
           <MdDarkMode
             alt="Day"
-            className="md:w-10 md:h-10 w-8 h-8 object-contain "
+            className="pl-1 md:w-10 md:h-10 w-8 h-8 object-contain "
             onClick={handleThemeClick}
           />
         )}
         {currentTheme == 2 && (
           <MdOutlineDarkMode
             alt="Night"
-            className="md:w-10 md:h-10 w-8 h-8 object-contain"
+            className="pl-1 md:w-10 md:h-10 w-8 h-8 object-contain"
             onClick={handleThemeClick}
           />
         )}
