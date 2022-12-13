@@ -1,10 +1,17 @@
 import React, { useEffect } from "react";
 import { Me } from "../../assets";
 
-const Bio = ({ setPage }) => {
+const Bio = ({ setPage, currentSeason, currentTheme }) => {
   useEffect(() => {
     setPage("Bio");
   }, []);
+
+  const spring_theme = "text-theme_green ";
+  const summer_theme = "text-theme_blue ";
+  const autumn_theme = "text-theme_red ";
+  const winter_theme = "text-theme_black ";
+  const light_theme = "text-theme_black";
+  const dark_theme = "text-theme_white";
 
   return (
     <div className="ml-5">
@@ -16,7 +23,17 @@ const Bio = ({ setPage }) => {
           style={{ height: "500px" }}
         />
         <div className="ml-5 hidden lg:flex flex-col  rounded-md shadow-lg  bg-white p-6 w-7/12">
-          <h1 className="text-4xl font-bold text-indigo-900">
+          <h1
+            className={`text-4xl font-bold  ${
+              currentSeason === 1
+                ? spring_theme
+                : currentSeason === 2
+                ? summer_theme
+                : currentSeason === 3
+                ? autumn_theme
+                : winter_theme
+            }`}
+          >
             Hi, I'm Junyoung
           </h1>
           <p className="pt-3 text-xl text-gray-500 indent-3">
@@ -40,21 +57,43 @@ const Bio = ({ setPage }) => {
         <div className="container mx-auto py-40 flex flex-col-reverse lg:flex-row items-center gap-20">
           <div className="my-auto flex flex-col gap-3">
             <h1 className="text-indigo-600 font-bold">Skill Set</h1>
-            <p className="text-gray-400 md: text-md lg: text-xl">
+            <p
+              className={`${
+                currentTheme === 1 ? dark_theme : light_theme
+              } md: text-md lg: text-xl font-semibold`}
+            >
               I am very comfortable building websites using React and designing
               with Tailwind. I am currently working on expanding my programming
               skills by learning NodeJS and NextJS.
             </p>
-            <h2 className="text-gray-400 font-medium">React (JS/TS)</h2>
+            <h2
+              className={`${
+                currentTheme === 1 ? dark_theme : light_theme
+              } font-medium`}
+            >
+              React (JS/TS)
+            </h2>
             <div className="w-full bg-gray-200 h-1.5 rounded-md">
               <div className="w-full bg-indigo-600 h-1.5 rounded-md"></div>
             </div>
 
-            <h2 className="text-gray-400 font-medium">CSS (Tailwind)</h2>
+            <h2
+              className={`${
+                currentTheme === 1 ? dark_theme : light_theme
+              } font-medium`}
+            >
+              CSS (Tailwind)
+            </h2>
             <div className="w-full bg-gray-200 h-1.5 rounded-md">
               <div className="w-5/6 bg-indigo-600 h-1.5 rounded-md"></div>
             </div>
-            <h2 className="text-gray-400 font-medium">NodeJS, NextJS</h2>
+            <h2
+              className={`${
+                currentTheme === 1 ? dark_theme : light_theme
+              } font-medium`}
+            >
+              NodeJS, NextJS
+            </h2>
             <div className="w-full bg-gray-200 h-1.5 rounded-md">
               <div className="w-4/6 bg-indigo-600 h-1.5 rounded-md"></div>
             </div>

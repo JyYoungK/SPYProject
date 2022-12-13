@@ -11,7 +11,6 @@ import Divider from "@mui/material/Divider";
 import { logo } from "../../assets";
 
 const musiclinks = [
-  // { name: "Around You", to: "/around-you", icon: HiOutlinePhotograph },
   { name: "Top Charts", to: "/top-charts", icon: FiAward },
   { name: "Top Artists", to: "/top-artists", icon: HiOutlineUserGroup },
 ];
