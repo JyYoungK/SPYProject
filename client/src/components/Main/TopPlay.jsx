@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -12,6 +12,7 @@ import { dummyTopArtistData } from "../../assets"; //Read data from local json f
 const TopPlay = () => {
   const dispatch = useDispatch();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
+  const [topChartsClosed, setTopChartsClosed] = useState(false);
   const { data, error } = useGetTopChartsQuery();
   const divRef = useRef(null);
 
@@ -23,6 +24,10 @@ const TopPlay = () => {
     workingData = data?.slice(0, 5); // Only show top 5 songs
   }
 
+  const closeTopCharts = () => {
+    setTopChartsClosed(true);
+  };
+
   const handlePauseClick = () => {
     dispatch(playPause(false));
   };
@@ -33,32 +38,42 @@ const TopPlay = () => {
   };
 
   return (
-    <div
-      ref={divRef}
-      className="px-2 xl:ml-5 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[340px] max-w-full flex flex-col bg-black border-4 border-red-600 border-r-4"
-    >
-      <div className="w-full flex flex-col">
-        <div className="flex flex-row justify-between items-center">
-          <h2 className="text-white font-bold text-2xl">Top Charts</h2>
-          <Link to="/top-charts">
+    <div>
+      {!topChartsClosed && (
+        <div
+          ref={divRef}
+          className="px-2 xl:ml-5 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[340px] max-w-full flex flex-col bg-black border-4 border-red-600 border-r-4"
+        >
+          <div className="w-full flex flex-col">
+            <div className="flex flex-row justify-between items-center">
+              <h2 className="pl-1 text-white font-bold text-2xl">Top Charts</h2>
+              <p
+                className="text-gray-300 text-base cursor-pointer"
+                onClick={closeTopCharts}
+              >
+                Hide for now
+              </p>
+              {/* <Link to="/top-charts">
             <p className="text-gray-300 text-base cursor-pointer">See more</p>
-          </Link>
-        </div>
+          </Link> */}
+            </div>
 
-        <div className="mt-4 flex flex-col gap-1">
-          {workingData?.map((song, i) => (
-            <TopChartCard
-              key={song.key}
-              song={song}
-              i={i}
-              isPlaying={isPlaying}
-              activeSong={activeSong}
-              handlePauseClick={handlePauseClick}
-              handlePlayClick={() => handlePlayClick(song, i)}
-            />
-          ))}
+            <div className="mt-4 flex flex-col gap-1">
+              {workingData?.map((song, i) => (
+                <TopChartCard
+                  key={song.key}
+                  song={song}
+                  i={i}
+                  isPlaying={isPlaying}
+                  activeSong={activeSong}
+                  handlePauseClick={handlePauseClick}
+                  handlePlayClick={() => handlePlayClick(song, i)}
+                />
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
