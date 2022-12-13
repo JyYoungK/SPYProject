@@ -6,6 +6,7 @@ import { Videos, Loader } from "../components";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
+import dummyVideoData from "../assets/dummyVideoData.json";
 
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState(null);
@@ -21,6 +22,10 @@ const VideoDetail = () => {
       (data) => setVideos(data.items)
     );
   }, [id]);
+
+  if (!videos?.snippet) {
+    console.log("error");
+  }
 
   if (!videoDetail?.snippet) return <Loader title={`Loading video...`} />;
 
