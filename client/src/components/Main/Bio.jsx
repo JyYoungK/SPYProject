@@ -15,7 +15,7 @@ const Bio = ({ setPage, currentSeason, currentTheme }) => {
 
   return (
     <div className="mx-auto">
-      <div className="h-1/2 w-full flex justify-center items-center sm:flex-row flex-col relative animate-slidedown ">
+      <div className="h-1/2 mt-5 w-full flex justify-center items-center sm:flex-row flex-col relative animate-slidedown ">
         <img
           className="object-cover"
           src={Me}
