@@ -23,7 +23,7 @@ const SportsVideo = ({ setPage }) => {
           mb={2}
           sx={{ color: "white" }}
         >
-          Sports <span style={{ color: "#FC1503" }}>videos</span>
+          Sports Videos
         </Typography>
 
         <Videos videos={videos} />

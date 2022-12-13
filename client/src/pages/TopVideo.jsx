@@ -23,7 +23,7 @@ const TopVideo = ({ setPage }) => {
           mb={2}
           sx={{ color: "white" }}
         >
-          New <span style={{ color: "#FC1503" }}>videos</span>
+          New Videos
         </Typography>
 
         <Videos videos={videos} />
