@@ -2,9 +2,12 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { playPause, setActiveSong } from "../../redux/features/playerSlice";
+import {
+  playPause,
+  setActiveSong,
+} from "../../utils/redux/features/playerSlice";
 import TopChartCard from "../Music/TopChartCard";
-import { useGetTopChartsQuery } from "../../redux/services/shazamCore";
+import { useGetTopChartsQuery } from "../../utils/redux/services/shazamCore";
 import dummyTopArtistJSON from "../../assets/dummyTopArtistData.json"; //Read data from local json file
 
 const TopPlay = () => {

@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { MusicHeader, Error, Loader, RelatedSongs } from "../components";
-import { setActiveSong, playPause } from "../redux/features/playerSlice";
+import { setActiveSong, playPause } from "../utils/redux/features/playerSlice";
 import {
   useGetSongDetailsQuery,
   useGetSongRelatedQuery,
-} from "../redux/services/shazamCore";
+} from "../utils/redux/services/shazamCore";
 import dummySongDetailJSON from "../assets/dummySongDetail.json"; //Read data from local json file
 import dummyRelatedSongDataJSON from "../assets/dummyRelatedSongData.json"; //Read data from local json file
 

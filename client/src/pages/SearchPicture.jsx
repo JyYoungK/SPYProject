@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Error, Loader, PictureCard } from "../components";
 import { PictureDetails } from "./";
-import { useGetPicturesBySearchQuery } from "../redux/services/unsplashCore";
+import { useGetPicturesBySearchQuery } from "../utils/redux/services/unsplashCore";
 import dummyPictureJSON from "../assets/dummyPictureData.json"; //Read data from local json file
 
 const SearchPicture = ({ setPage }) => {

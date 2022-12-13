@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Error, Loader, SongCard } from "../components";
-import { selectGenreListId } from "../redux/features/playerSlice";
-import { useGetSongsByGenreQuery } from "../redux/services/shazamCore";
+import { selectGenreListId } from "../utils/redux/features/playerSlice";
+import { useGetSongsByGenreQuery } from "../utils/redux/services/shazamCore";
 import { genres } from "../assets/constants";
 import dummyDiscoverJSON from "../assets/dummyDiscoverData.json"; //Read data from local json file
 
