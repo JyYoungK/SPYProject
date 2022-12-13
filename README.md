@@ -1,6 +1,7 @@
 # SPY Project
 
 (Note: This website does not have the paid API key. Some components are limited)
+
 Demo URL: https://spyproject.netlify.app/
 
 ## Main Stack - M.E.R.N
