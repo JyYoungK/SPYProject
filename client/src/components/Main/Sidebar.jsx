@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { AiOutlinePicture, AiOutlineYoutube } from "react-icons/ai";
 import { FiAward } from "react-icons/fi";
 import { HiOutlineMenu, HiOutlineUserGroup } from "react-icons/hi";
@@ -12,7 +12,7 @@ import { logo } from "../../assets";
 
 const musiclinks = [
   // { name: "Around You", to: "/around-you", icon: HiOutlinePhotograph },
-  { name: "Top Charts", to: "/", icon: FiAward },
+  { name: "Top Charts", to: "/top-charts", icon: FiAward },
   { name: "Top Artists", to: "/top-artists", icon: HiOutlineUserGroup },
 ];
 const picturelinks = [
@@ -80,7 +80,9 @@ const Sidebar = () => {
   return (
     <>
       <div className="md:flex hidden flex-col w-[180px] px-4 bg-[#191624]">
-        <img src={logo} alt="logo" className="w-full h-20 object-contain" />
+        <Link to="/">
+          <img src={logo} alt="logo" className="w-full h-20 object-contain" />
+        </Link>
         <NavLinks />
       </div>
 

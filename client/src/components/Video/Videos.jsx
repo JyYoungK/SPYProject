@@ -1,6 +1,5 @@
 import React from "react";
 import { Stack, Box } from "@mui/material";
-
 import { Loader, VideoCard } from "..";
 
 const Videos = ({ videos, direction }) => {

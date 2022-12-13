@@ -1,6 +1,7 @@
 import Navbar from "./Main/Navbar";
 import Sidebar from "./Main/Sidebar";
 import TopPlay from "./Main/TopPlay";
+import Bio from "./Main/Bio";
 import Loader from "./StateHandler/Loader";
 import Error from "./StateHandler/Error";
 import MusicSearchBar from "./Music/MusicSearchBar";
@@ -20,6 +21,7 @@ export {
   Navbar,
   Sidebar,
   TopPlay,
+  Bio,
   Loader,
   Error,
   MusicSearchBar,

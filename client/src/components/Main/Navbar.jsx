@@ -2,6 +2,7 @@ import React from "react";
 import MusicSearchbar from "../Music/MusicSearchBar";
 import PictureSearchbar from "../Picture/PictureSearchBar";
 import VideoSearchbar from "../Video/VideoSearchBar";
+import NoSearchbar from "./NoSearchBar";
 import { spring, summer, autumn, winter } from "../../assets";
 import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
 const Navbar = ({
@@ -11,8 +12,6 @@ const Navbar = ({
   currentTheme,
   handleSetTheme,
 }) => {
-  const darkTheme = "text-white bg-black";
-  const lightTheme = "text-black bg-white";
   const handleSeasonClick = () => {
     handleSetSeason(currentSeason + 1);
     if (currentSeason === 4) {
@@ -34,8 +33,10 @@ const Navbar = ({
           <MusicSearchbar />
         ) : page === "Picture" ? (
           <PictureSearchbar />
-        ) : (
+        ) : page === "Video" ? (
           <VideoSearchbar />
+        ) : (
+          <NoSearchbar />
         )}
       </div>
       <div className="pr-3 w-1/2 flex flex-row justify-end">

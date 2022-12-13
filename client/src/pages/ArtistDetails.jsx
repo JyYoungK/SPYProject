@@ -8,6 +8,7 @@ import {
 } from "../utils/redux/services/shazamCore";
 import dummyArtistDetailJSON from "../assets/dummyArtistDetail.json"; //Read data from local json file
 import dummyArtistDataJSON from "../assets/dummyArtistData.json"; //Read data from local json file
+
 const ArtistDetails = ({ setPage }) => {
   useEffect(() => {
     setPage("Music");

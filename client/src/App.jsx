@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { Navbar, Sidebar, MusicPlayer, TopPlay } from "./components";
+import { Navbar, Sidebar, TopPlay, Bio, MusicPlayer } from "./components";
 import {
   TopCharts,
   SearchMusic,
@@ -40,8 +40,6 @@ const App = () => {
     if (themeData !== null) {
       setCurrentTheme(JSON.parse(themeData));
     }
-    console.log(seasonData);
-    console.log(themeData);
   }, []);
 
   useEffect(() => {
@@ -90,7 +88,7 @@ const App = () => {
         <div className=" h-[calc(100vh-100px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
           <div className="flex-1 h-fit pb-40">
             <Routes>
-              <Route path="/" element={<TopCharts setPage={handleSetPage} />} />
+              <Route path="/" element={<Bio setPage={handleSetPage} />} />
               <Route
                 path="/searchMusic/:searchTerm"
                 element={<SearchMusic setPage={handleSetPage} />}

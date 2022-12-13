@@ -3,6 +3,7 @@ import { AiFillDatabase, AiFillInstagram } from "react-icons/ai";
 import { BsCameraFill } from "react-icons/bs";
 import { GrClose } from "react-icons/gr";
 import { IoLocationSharp } from "react-icons/io5";
+
 const PictureDetails = ({ toggleModal, openPin }) => {
   return (
     <div className="relative h-80 w-full flex flex-row bg-white ">
