@@ -15,7 +15,7 @@ const NoSearchbar = () => {
           id="search-field"
           className="flex-1 bg-transparent border-none placeholder-black outline-none text-base text-black md:p-4 p-2"
           placeholder="Nothing to search here"
-          disabled={true}
+          disabled="true"
         />
       </div>
     </form>

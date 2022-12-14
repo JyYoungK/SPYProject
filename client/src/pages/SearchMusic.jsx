@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Error, Loader, SongCard } from "../components";
-import { useGetSongsBySearchQuery } from "../utils/redux/services/shazam/shazamCore";
+import { useGetSongsBySearchQuery } from "../utils/redux/services/shazamCore";
 import { dummyArtistDetail } from "../assets"; //Read data from local json file
 
 const SearchMusic = ({ setPage }) => {
@@ -12,7 +12,7 @@ const SearchMusic = ({ setPage }) => {
   const { searchTerm } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetSongsBySearchQuery(searchTerm);
-  console.log(data);
+
   if (isFetching) return <Loader title={`Searching ${searchTerm}...`} />;
 
   let songs;

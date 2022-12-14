@@ -6,7 +6,7 @@ import { setActiveSong, playPause } from "../utils/redux/features/playerSlice";
 import {
   useGetSongDetailsQuery,
   useGetSongRelatedQuery,
-} from "../utils/redux/services/shazam/shazamCore";
+} from "../utils/redux/services/shazamCore";
 import { dummySongDetail, dummyRelatedSongData } from "../assets"; //Read data from local json file
 
 const SongDetails = ({ setPage }) => {

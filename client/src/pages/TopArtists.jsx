@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { ArtistCard, Error, Loader } from "../components";
-import { useGetTopChartsQuery } from "../utils/redux/services/shazam/shazamCore";
+import { useGetTopChartsQuery } from "../utils/redux/services/shazamCore";
 import { dummyTopArtistData } from "../assets"; //Read data from local json file
 
 const TopArtists = ({ setPage }) => {
