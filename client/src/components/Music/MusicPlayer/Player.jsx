@@ -11,6 +11,7 @@ const Player = ({
   repeat,
 }) => {
   const ref = useRef(null);
+  console.log(ref);
   // eslint-disable-next-line no-unused-expressions
   if (ref.current) {
     if (isPlaying) {
@@ -21,22 +22,26 @@ const Player = ({
   }
 
   useEffect(() => {
-    ref.current.volume = volume;
+    ref?.current.volume = volume;
   }, [volume]);
   // updates audio element only on seekTime change (and not on each rerender):
   useEffect(() => {
-    ref.current.currentTime = seekTime;
+    ref?.current.currentTime = seekTime;
   }, [seekTime]);
 
   return (
-    <audio
-      src={activeSong?.hub?.actions[1]?.uri}
-      ref={ref}
-      loop={repeat}
-      onEnded={onEnded}
-      onTimeUpdate={onTimeUpdate}
-      onLoadedData={onLoadedData}
-    />
+    <div>
+      {activeSong?.hub?.actions && (
+        <audio
+          src={activeSong?.hub?.actions[1]?.uri}
+          ref={ref}
+          loop={repeat}
+          onEnded={onEnded}
+          onTimeUpdate={onTimeUpdate}
+          onLoadedData={onLoadedData}
+        />
+      )}
+    </div>
   );
 };
 
