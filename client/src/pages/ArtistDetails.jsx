@@ -5,7 +5,7 @@ import { Error, Loader, ArtistHeader, SongCard } from "../components";
 import {
   useGetArtistDetailsQuery,
   useGetSongsBySearchQuery,
-} from "../utils/redux/services/shazamCore";
+} from "../utils/redux/services/shazam/shazamCore";
 import { dummyArtistDetail, dummyArtistData } from "../assets"; //Read data from local json file
 
 const ArtistDetails = ({ setPage }) => {

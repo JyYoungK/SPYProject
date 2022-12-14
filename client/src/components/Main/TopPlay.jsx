@@ -6,7 +6,7 @@ import {
   setActiveSong,
 } from "../../utils/redux/features/playerSlice";
 import TopChartCard from "../Music/TopChartCard";
-import { useGetTopChartsQuery } from "../../utils/redux/services/shazamCore";
+import { useGetTopChartsQuery } from "../../utils/redux/services/shazam/shazamCore";
 import { dummyTopArtistData } from "../../assets"; //Read data from local json file
 
 const TopPlay = () => {

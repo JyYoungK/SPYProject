@@ -112,22 +112,14 @@ const MusicPlayer = () => {
         </div>
       )}
       {musicPlayerMinimized && (
-        <div className="flex flex-row md:justify-end justify-between px-1 xl:ml-5 xl:mb-0 xl:max-w-[340px] bg-black border-4 border-red-600">
-          <div className="md:hidden flex">
+        <div className="flex flex-row justify-between px-1 xl:ml-5 xl:mb-0 xl:max-w-[340px] bg-black border-4 border-red-600">
+          <div className="flex">
             <p className="px-2 pt-3 truncate text-white font-bold text-lg">
               {activeSong?.title
                 ? activeSong?.title.length > 20
                   ? activeSong?.title.slice(0, 20) + "..."
                   : activeSong?.title
                 : "No active Song"}{" "}
-            </p>
-            <p className="px-2 pt-3 truncate text-gray-300 font-bold text-lg">
-              -{" "}
-              {activeSong?.subtitle
-                ? activeSong?.subtitle.length > 20
-                  ? activeSong?.subtitle.slice(0, 20) + "..."
-                  : activeSong?.subtitle
-                : "No active Song"}
             </p>
           </div>
           <div className="flex ">
