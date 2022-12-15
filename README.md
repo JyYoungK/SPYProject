@@ -2,9 +2,14 @@
 
 ![](./client/src/assets/Logos/logo.webp)
 
-(Note: This website does not have the paid API key. Some components are limited)
 
 Demo URL: https://spyproject.netlify.app/
+
+- SPY stands for (Spotify/Pinterest/Youtube). From this website, you can be updated with all real-time Top Charts/Artists/Pictures/Videos. All data are being fetched from working API.
+- I find having two themes(light/dark) on every website getting old. So I created a theme that can toggle between 4 seasons(green, blue, red, grey) + 2 (light/dark) theme.
+- Designed for Mobile as well!
+
+(Note: This website does not have the paid API key. Some components are limited)
 
 ## Main Stack - M.E.R.N
 
