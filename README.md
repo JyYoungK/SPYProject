@@ -9,7 +9,7 @@
 - I find having two themes(light/dark) on every website getting old. So I created a theme that can toggle between 4 seasons(green, blue, red, grey) + 2 (light/dark) theme.
 - Designed for Mobile as well!
 
-**(Note: This website does not have the paid API key. Some components are limited)**
+- **(Note: This website does not have the paid API key. Some components are limited)**
 
 ## Main Stack - M.E.R.N
 
