@@ -35,62 +35,122 @@ const VideoDetail = () => {
   } = videoDetail;
 
   return (
-    <Box className="ml-5" minHeight="95vh">
-      <Stack className="pb-5 " direction={{ xs: "column", md: "row" }}>
-        <Box flex={1}>
-          <Box className="bg-black w-full ">
-            <Container>
-              <div className="ratio ratio-16x9">
-                <iframe
-                  src={`https://www.youtube.com/embed/${id}`}
-                  frameborder="0"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                  title="video"
-                  className="react-player "
-                />
-              </div>
-            </Container>
-            <Typography
-              color="#fff"
-              variant="h5"
-              fontWeight="bold"
-              p={2}
-              className="bg-black"
-            >
-              {title}
-            </Typography>
-            <Stack
-              direction="row"
-              sx={{ color: "#fff" }}
-              py={1}
-              px={2}
-              className="bg-black justify-between"
-            >
-              <Link to={`/channel/${channelId}`}>
+    <div>
+      {videoDetail?.snippet && (
+        <Box className="ml-5" minHeight="95vh">
+          <Stack className="pb-5 " direction={{ xs: "column", md: "row" }}>
+            <Box flex={1}>
+              <Box className="bg-black w-full ">
+                <Container>
+                  <div className="ratio ratio-16x9">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${id}`}
+                      frameborder="0"
+                      allow="autoplay; encrypted-media"
+                      allowFullScreen
+                      title="video"
+                      className="react-player "
+                    />
+                  </div>
+                </Container>
                 <Typography
-                  variant={{ sm: "subtitle1", md: "h6" }}
                   color="#fff"
-                  className="text-lg"
+                  variant="h5"
+                  fontWeight="bold"
+                  p={2}
+                  className="bg-black"
                 >
-                  {channelTitle}
-                  <CheckCircleIcon className="text-2xl text-white-100" />
+                  {title}
                 </Typography>
-              </Link>
-              <Stack direction="row" gap="20px" alignItems="center">
-                <Typography variant="body1" sx={{ opacity: 0.7 }}>
-                  {parseInt(viewCount).toLocaleString()} views
-                </Typography>
-                <Typography variant="body1" sx={{ opacity: 0.7 }}>
-                  {parseInt(likeCount).toLocaleString()} likes
-                </Typography>
-              </Stack>
-            </Stack>
-          </Box>
+                <Stack
+                  direction="row"
+                  sx={{ color: "#fff" }}
+                  py={1}
+                  px={2}
+                  className="bg-black justify-between"
+                >
+                  <Link to={`/channel/${channelId}`}>
+                    <Typography
+                      variant={{ sm: "subtitle1", md: "h6" }}
+                      color="#fff"
+                      className="text-lg"
+                    >
+                      {channelTitle}
+                      <CheckCircleIcon className="text-2xl text-white-100" />
+                    </Typography>
+                  </Link>
+                  <Stack direction="row" gap="20px" alignItems="center">
+                    <Typography variant="body1" sx={{ opacity: 0.7 }}>
+                      {parseInt(viewCount).toLocaleString()} views
+                    </Typography>
+                    <Typography variant="body1" sx={{ opacity: 0.7 }}>
+                      {parseInt(likeCount).toLocaleString()} likes
+                    </Typography>
+                  </Stack>
+                </Stack>
+              </Box>
+            </Box>
+          </Stack>
+          <Videos videos={videos} direction="row" />
         </Box>
-      </Stack>
-      <Videos videos={videos} direction="row" />
-    </Box>
+      )}
+      {!videoDetail?.snippet && (
+        <Box className="ml-5" minHeight="95vh">
+          <Stack className="pb-5 " direction={{ xs: "column", md: "row" }}>
+            <Box flex={1}>
+              <Box className="bg-black w-full ">
+                <Container>
+                  <div className="ratio ratio-16x9">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${id}`}
+                      frameborder="0"
+                      allow="autoplay; encrypted-media"
+                      allowFullScreen
+                      title="video"
+                      className="react-player "
+                    />
+                  </div>
+                </Container>
+                <Typography
+                  color="#fff"
+                  variant="h5"
+                  fontWeight="bold"
+                  p={2}
+                  className="bg-black"
+                >
+                  Sorry, API request call has reached the max amount. Could not
+                  display the Video title.
+                </Typography>
+                <Stack
+                  direction="row"
+                  sx={{ color: "#fff" }}
+                  py={1}
+                  px={2}
+                  className="bg-black justify-between"
+                >
+                  <Typography
+                    variant={{ sm: "subtitle1", md: "h6" }}
+                    color="#fff"
+                    className="text-lg"
+                  >
+                    ???
+                    <CheckCircleIcon className="text-2xl text-white-100" />
+                  </Typography>
+                  <Stack direction="row" gap="20px" alignItems="center">
+                    <Typography variant="body1" sx={{ opacity: 0.7 }}>
+                      ? views
+                    </Typography>
+                    <Typography variant="body1" sx={{ opacity: 0.7 }}>
+                      ? likes
+                    </Typography>
+                  </Stack>
+                </Stack>
+              </Box>
+            </Box>
+          </Stack>
+        </Box>
+      )}
+    </div>
   );
 };
 
