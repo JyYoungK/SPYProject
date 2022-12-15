@@ -16,7 +16,7 @@ const PictureDetails = ({ toggleModal, openPin }) => {
                 ? openPin?.urls?.full
                 : "https://t3.ftcdn.net/jpg/03/34/83/22/360_F_334832255_IMxvzYRygjd20VlSaIAFZrQWjozQH6BQ.jpg"
             }
-            className="mx-auto mt-3 w-6/12 h-full object-cover border-2 shadow-xl items-center shadow-black"
+            className="mx-auto mt-3 w-10/12 h-full object-cover border-2 shadow-xl items-center shadow-black"
           />
         </a>
       </div>

@@ -18,6 +18,15 @@ export const unsplashCoreApi = createApi({
     getRandomPhotos: builder.query({
       query: () => `photos/random?count=20`,
     }),
+    getNaturePhotos: builder.query({
+      query: () => `search/photos?query=nature?per_page=20`,
+    }),
+    getPuppyPhotos: builder.query({
+      query: () => `search/photos?query=puppy?per_page=20`,
+    }),
+    getCatPhotos: builder.query({
+      query: () => `search/photos?query=kitten?per_page=20`,
+    }),
     getPicturesBySearch: builder.query({
       query: (search) => `search/photos?query=${search}?per_page=20`,
       //query: (search) => search will give ? instead of /
@@ -25,23 +34,10 @@ export const unsplashCoreApi = createApi({
   }),
 });
 
-// If API runs out of requests, use this one
-// export const unsplashCoreApi = createApi({
-//   reducerPath: "unsplashCoreApi",
-//   baseQuery: fetchBaseQuery({
-//     baseUrl: "https://unsplash-data.p.rapidapi.com/search",
-//     prepareHeaders: (headers) => {
-//       headers.set("X-RapidAPI-Key", import.meta.env.VITE_RAPID_API_KEY);
-
-//       return headers;
-//     },
-//   }),
-//   endpoints: (builder) => ({
-//     getPicturesBySearch: builder.query({
-//       query: (search) => `collections?query=${search}&per_page=20&page=1`,
-//     }),
-//   }),
-// });
-
-export const { useGetPicturesBySearchQuery, useGetRandomPhotosQuery } =
-  unsplashCoreApi;
+export const {
+  useGetRandomPhotosQuery,
+  useGetNaturePhotosQuery,
+  useGetPuppyPhotosQuery,
+  useGetCatPhotosQuery,
+  useGetPicturesBySearchQuery,
+} = unsplashCoreApi;

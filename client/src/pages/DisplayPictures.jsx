@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Error, Loader, PictureCard } from "../components";
 import { PictureDetails } from "./";
-import { useGetRandomPhotosQuery } from "../utils/redux/services/unsplashCore";
+import {
+  useGetRandomPhotosQuery,
+  useGetPicturesBySearchQuery,
+} from "../utils/redux/services/unsplashCore";
 import { dummyPictureData } from "../assets"; //Read data from local json file
 
 const DisplayPictures = ({ setPage }) => {
@@ -9,6 +12,11 @@ const DisplayPictures = ({ setPage }) => {
     setPage("Picture");
   }, []);
   const { data, isFetching, error } = useGetRandomPhotosQuery();
+  const { data: data2 } = useGetPicturesBySearchQuery("nature");
+  const { data: data3 } = useGetPicturesBySearchQuery("puppy");
+  const { data: data4 } = useGetPicturesBySearchQuery("space");
+  const { data: data5 } = useGetPicturesBySearchQuery("art");
+  const { data: data6 } = useGetPicturesBySearchQuery("kitten");
   const [openModal, setOpenModal] = useState(false);
   const [openPin, setOpenPin] = useState();
   const toggleModal = () => {
@@ -43,6 +51,46 @@ const DisplayPictures = ({ setPage }) => {
       <div className="flex w-full h-full justify-center md:ml-2">
         <div className="h-full md:columns-5 ">
           {pins.map((pin, i) => (
+            <PictureCard
+              key={i}
+              pin={pin}
+              openModal={toggleModal}
+              setOpenPin={setOpenPin}
+            />
+          ))}
+          {data2?.results?.map((pin, i) => (
+            <PictureCard
+              key={i}
+              pin={pin}
+              openModal={toggleModal}
+              setOpenPin={setOpenPin}
+            />
+          ))}
+          {data3?.results?.map((pin, i) => (
+            <PictureCard
+              key={i}
+              pin={pin}
+              openModal={toggleModal}
+              setOpenPin={setOpenPin}
+            />
+          ))}
+          {data4?.results?.map((pin, i) => (
+            <PictureCard
+              key={i}
+              pin={pin}
+              openModal={toggleModal}
+              setOpenPin={setOpenPin}
+            />
+          ))}
+          {data5?.results?.map((pin, i) => (
+            <PictureCard
+              key={i}
+              pin={pin}
+              openModal={toggleModal}
+              setOpenPin={setOpenPin}
+            />
+          ))}
+          {data6?.results?.map((pin, i) => (
             <PictureCard
               key={i}
               pin={pin}

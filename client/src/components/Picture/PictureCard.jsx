@@ -8,7 +8,7 @@ const PictureCard = ({ pin, openModal, setOpenPin }) => (
       setOpenPin(pin);
     }}
   >
-    <div className="flex items-center box-border cursor-pointer w-60">
+    <div className="flex items-center box-border cursor-pointer">
       <img
         className="flex w-full rounded-2xl object-cover"
         src={pin.urls?.regular}
