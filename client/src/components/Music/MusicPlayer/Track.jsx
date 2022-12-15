@@ -14,20 +14,20 @@ const Track = ({ isPlaying, isActive, activeSong }) => (
       />
     </div>
     <div className="w-[50%]">
-      <p className="truncate text-white font-bold text-lg">
+      <div className="truncate text-white font-bold text-lg">
         {activeSong?.title
           ? activeSong?.title.length > 20
             ? activeSong?.title.slice(0, 20) + "..."
             : activeSong?.title
           : "No active Song"}
-      </p>
-      <p className="truncate text-gray-300">
+      </div>
+      <div className="truncate text-gray-300">
         {activeSong?.subtitle
           ? activeSong?.subtitle.length > 20
             ? activeSong?.subtitle.slice(0, 20) + "..."
             : activeSong?.subtitle
           : "No active Song"}
-      </p>
+      </div>
     </div>
   </div>
 );

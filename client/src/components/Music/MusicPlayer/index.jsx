@@ -80,6 +80,14 @@ const MusicPlayer = () => {
               isActive={isActive}
               activeSong={activeSong}
             />
+            <Seekbar
+              value={appTime}
+              min="0"
+              max={duration}
+              onInput={(event) => setSeekTime(event.target.value)}
+              setSeekTime={setSeekTime}
+              appTime={appTime}
+            />
             <Controls
               isPlaying={isPlaying}
               isActive={isActive}
@@ -91,14 +99,6 @@ const MusicPlayer = () => {
               handlePlayPause={handlePlayPause}
               handlePrevSong={handlePrevSong}
               handleNextSong={handleNextSong}
-            />
-            <Seekbar
-              value={appTime}
-              min="0"
-              max={duration}
-              onInput={(event) => setSeekTime(event.target.value)}
-              setSeekTime={setSeekTime}
-              appTime={appTime}
             />
             <VolumeBar
               value={volume}
