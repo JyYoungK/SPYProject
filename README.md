@@ -24,7 +24,7 @@ Demo URL: https://spyproject.netlify.app/
 - JSON Web Token for authentication
 - Multer for file upload
 
-### Generate Full Working Website
+## How to Generate Working Website on your localhost
 
 - Create `.env.local` file inside client
 - Fill in the followings
@@ -34,3 +34,13 @@ Demo URL: https://spyproject.netlify.app/
 ex)
 
 - VITE_RAPID_API_KEY = KJwZZIJSFimshuivMSVGaiYzkRomp15f2vKjsnK4bKzuUzVLzA
+
+
+### Installation
+
+You can install the latest version using npm:
+cd to client folder then
+
+`npm install`
+`npm run dev`
+
