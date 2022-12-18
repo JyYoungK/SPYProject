@@ -2,7 +2,6 @@
 
 ![](./client/src/assets/Logos/logo.webp)
 
-
 - Demo URL: https://spyproject.netlify.app/
 
 - SPY stands for (Spotify/Pinterest/Youtube). From this website, you can be updated with all real-time Top Charts/Artists/Pictures/Videos. All data are being fetched from working API.
@@ -31,7 +30,7 @@
 - JSON Web Token for authentication
 - Multer for file upload
 
-## How to Generate Working Website on your localhost
+## Generate Working Website on your localhost
 
 - Create `.env.local` file inside client
 - Fill in the followings
@@ -42,6 +41,20 @@ ex)
 
 - VITE_RAPID_API_KEY = KJwZZIJSFimshuivMSVGaiYzkRomp15f2vKjsnK4bKzuUzVLzA
 
+### Deploying to Netlify
+
+- Create a netlify account
+- Then open terminal, navigate to client folder and type `npm run build`. It will generate a `dist` folder under client.
+- Go to Sites in netlify webpage and there is a button called `add new sites`.
+- Click deploy manually.
+- Open `dist` folder from explorer and drop the page folder into netlify and wait for to finish making.
+
+### To update
+
+- Remove `dist` folder and Type `npm run build` in terminal.
+- Click on your project in netlify, go to Deploys.
+- Under Deploys section, there is a section to drop site output folder.
+- Drop `dist` folder there.
 
 ### Installation
 
@@ -50,4 +63,3 @@ cd to client folder then
 
 `npm install`
 `npm run dev`
-
