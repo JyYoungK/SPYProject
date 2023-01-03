@@ -22,14 +22,6 @@
 - React Bootstrap for video
 - Tailwind/MUI for Design and CSS
 
-### Backend (Coming up)
-
-- NodeJS for run time
-- ExpressJS for backend framework
-- MongoDB for database
-- JSON Web Token for authentication
-- Multer for file upload
-
 ## Generate Working Website on your localhost
 
 - Create `.env.local` file inside client
