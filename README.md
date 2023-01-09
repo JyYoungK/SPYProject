@@ -10,8 +10,6 @@
 
 - **(Note: This website does not have the paid API key. Some components are limited)**
 
-## Main Stack - M.E.R.N
-
 ### Frontend
 
 - React as framework
