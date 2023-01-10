@@ -21,7 +21,7 @@ const TopCharts = ({ setPage }) => {
 
   if (isFetching) return <Loader title="Loading Songs..." />;
 
-  if (error?.status === 429) {
+  if (error?.status === 429 || error?.status === 401) {
     workingData = dummyDiscoverData;
   } else if (error) {
     return <Error />;
@@ -36,7 +36,7 @@ const TopCharts = ({ setPage }) => {
   return (
     <div className="ml-5 flex flex-col">
       <div className="w-full flex justify-between items-center sm:flex-row flex-col">
-        {error?.status === 429 ? (
+        {error ? (
           <h2 className="font-bold text-xl text-white text-left mt-4 mb-10">
             Sorry, API request call has reached the max amount. Displaying
             random charts instead.

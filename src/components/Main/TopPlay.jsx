@@ -18,7 +18,7 @@ const TopPlay = () => {
 
   let workingData;
 
-  if (error?.status === 429) {
+  if (error?.status === 429 || error?.status === 401) {
     workingData = dummyTopArtistData?.slice(0, 5);
   } else {
     workingData = data?.slice(0, 5); // Only show top 5 songs
